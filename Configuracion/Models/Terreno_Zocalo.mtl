@@ -1,0 +1,66 @@
+
+# ============================================================
+#  Terreno_Zocalo.mtl  –  Materiales de la Plaza del Zocalo
+#  Cada material referencia una textura real de la carpeta
+#  Models/Textures/
+# ============================================================
+
+# Patio central y andadores principales (losa de piedra)
+newmtl Pavimento
+Ka 1.0 1.0 1.0
+Kd 1.0 1.0 1.0
+Ks 0.10 0.10 0.10
+Ns 20.0
+d 1.0
+illum 2
+map_Kd Textures/textura_patio_piedra.jpg
+
+# Calles perimetrales (asfalto)
+newmtl Calle
+Ka 1.0 1.0 1.0
+Kd 1.0 1.0 1.0
+Ks 0.02 0.02 0.02
+Ns 6.0
+d 1.0
+illum 2
+map_Kd Textures/textura_asfalto_calle.jpg
+
+# Banquetas / andenes perimetrales
+newmtl Banqueta
+Ka 1.0 1.0 1.0
+Kd 1.0 1.0 1.0
+Ks 0.05 0.05 0.05
+Ns 12.0
+d 1.0
+illum 2
+map_Kd Textures/textura_banqueta.jpg
+
+# Suelo de jardineras / areas de laureles
+newmtl AreaVerde
+Ka 1.0 1.0 1.0
+Kd 1.0 1.0 1.0
+Ks 0.01 0.01 0.01
+Ns 4.0
+d 1.0
+illum 2
+map_Kd Textures/textura_suelo_arbol.jpg
+
+# Piso de baldosa de las jardineras formales (checkerboard piedra/banco)
+newmtl PisoBaldosa
+Ka 1.0 1.0 1.0
+Kd 1.0 1.0 1.0
+Ks 0.12 0.12 0.12
+Ns 24.0
+d 1.0
+illum 2
+map_Kd Textures/textura_patio_piedra.jpg
+
+# Rotonda central — piedra ligeramente mas clara
+newmtl Rotonda
+Ka 1.0 1.0 1.0
+Kd 1.0 1.0 1.0
+Ks 0.08 0.08 0.08
+Ns 16.0
+d 1.0
+illum 2
+map_Kd Textures/textura_banqueta.jpg
