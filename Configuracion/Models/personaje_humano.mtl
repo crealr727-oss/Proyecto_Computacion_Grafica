@@ -1,0 +1,108 @@
+# -----------------------------------------------------
+# Material Library (.MTL) for personaje_humano.obj
+# Compatible with Blender 3.x, 4.x, Cycles, and Eevee
+# -----------------------------------------------------
+
+newmtl mat_pantalon
+Ka 1.0000 1.0000 1.0000
+Kd 0.9000 0.9000 0.9000
+Ks 0.2000 0.2000 0.2000
+Ns 60.0000
+d 1.0000
+illum 2
+map_Kd textura_pantalon.png
+map_Bump textura_pantalon.png
+
+newmtl mat_cinturon
+Ka 1.0000 1.0000 1.0000
+Kd 0.9000 0.9000 0.9000
+Ks 0.2000 0.2000 0.2000
+Ns 60.0000
+d 1.0000
+illum 2
+map_Kd textura_chaqueta.png
+
+newmtl mat_hebilla
+Ka 1.0000 1.0000 1.0000
+Kd 0.9000 0.9000 0.9000
+Ks 0.2000 0.2000 0.2000
+Ns 60.0000
+d 1.0000
+illum 2
+map_Kd techo_cobre.png
+
+newmtl mat_chaqueta
+Ka 1.0000 1.0000 1.0000
+Kd 0.9000 0.9000 0.9000
+Ks 0.2000 0.2000 0.2000
+Ns 60.0000
+d 1.0000
+illum 2
+map_Kd textura_chaqueta.png
+map_Bump textura_chaqueta.png
+
+newmtl mat_default
+Ka 1.0000 1.0000 1.0000
+Kd 0.9000 0.9000 0.9000
+Ks 0.2000 0.2000 0.2000
+Ns 60.0000
+d 1.0000
+illum 2
+map_Kd textura_patio_piedra.png
+
+newmtl mat_piel
+Ka 1.0000 1.0000 1.0000
+Kd 0.9000 0.9000 0.9000
+Ks 0.2000 0.2000 0.2000
+Ns 60.0000
+d 1.0000
+illum 2
+map_Kd textura_piel.png
+map_Bump textura_piel.png
+
+newmtl mat_labios
+Ka 1.0000 1.0000 1.0000
+Kd 0.9000 0.9000 0.9000
+Ks 0.2000 0.2000 0.2000
+Ns 60.0000
+d 1.0000
+illum 2
+map_Kd textura_patio_piedra.png
+
+newmtl mat_esclerotica
+Ka 1.0000 1.0000 1.0000
+Kd 0.9000 0.9000 0.9000
+Ks 0.2000 0.2000 0.2000
+Ns 60.0000
+d 1.0000
+illum 2
+map_Kd textura_patio_piedra.png
+
+newmtl mat_ojos
+Ka 1.0000 1.0000 1.0000
+Kd 0.9000 0.9000 0.9000
+Ks 0.2000 0.2000 0.2000
+Ns 60.0000
+d 1.0000
+illum 2
+map_Kd textura_patio_piedra.png
+
+newmtl mat_cabello
+Ka 1.0000 1.0000 1.0000
+Kd 0.9000 0.9000 0.9000
+Ks 0.2000 0.2000 0.2000
+Ns 60.0000
+d 1.0000
+illum 2
+map_Kd textura_cabello.png
+
+newmtl mat_calzado
+Ka 1.0000 1.0000 1.0000
+Kd 0.9000 0.9000 0.9000
+Ks 0.2000 0.2000 0.2000
+Ns 60.0000
+d 1.0000
+illum 2
+map_Kd textura_calzado.png
+map_Bump textura_calzado.png
+

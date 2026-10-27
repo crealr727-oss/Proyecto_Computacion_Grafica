@@ -16,7 +16,7 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
-const GLint WIDTH = 800, HEIGHT = 600;
+const GLint WIDTH = 1600, HEIGHT = 1200;
 // Camara inicial con vista isometrica del terreno completo
 Camera camera(glm::vec3(0.0f, 5.8f, 6.2f), glm::vec3(0.0f, 1.0f, 0.0f), -90.0f, -43.0f);
 bool keys[1024] = {};
@@ -276,9 +276,12 @@ int main()
 
 	Shader shader("Shader/modelLoading.vs", "Shader/modelLoading.frag");
 
-	// ── Terreno: Plaza Zocalo – 7 zonas texturizadas segun el plano
-	// (piso base, calles, banquetas, andadores, rotonda, tierra, jardineras)
-	char plazaPath[] = "Models/Plaza_Zocalo.obj";
+	// ── Escena completa: Plaza Colonial Zocalo (plano maestro de 60 m x 60 m)
+	// Incluye terreno, calles, banquetas, patios, kiosko, bancas, faroles,
+	// laureles, topiarios y portal de columnas (82 objetos segun la matriz).
+	// El OBJ esta en metros; se escala con SCENE_SCALE para encajar en los
+	// limites de movimiento del personaje (+-3.25 unidades).
+	char plazaPath[] = "Models/plaza_plano_maestro.obj";
 	Model plaza(plazaPath);
 
 	// ── Personaje controlable
@@ -286,87 +289,14 @@ int main()
 	Character character(characterPath, 0.14f);
 	controlledCharacter = &character;
 
-	// ── Arbol (mesh unico, instanciado por cuadrante)
-	char treePath[] = "Models/arbol_plaza.obj";
-	Model treeModel(treePath);
-
 	UpdateWindowTitle(window);
 
 	// Proyeccion: near corto para ver detalles, far amplio para toda la plaza
 	glm::mat4 projection = glm::perspective(glm::radians(camera.GetZoom()),
 		static_cast<float>(screenWidth) / static_cast<float>(screenHeight), 0.0001f, 120.0f);
 
-	// ─────────────────────────────────────────────────────────────────────
-	// Posiciones de arboles alineadas con las zonas de TIERRA (AreaVerde)
-	// del Plaza_Zocalo.obj. Solo en AreaVerde, NUNCA en Jardineras/Andadores.
-	//
-	// Zonas AreaVerde por cuadrante:
-	//   NW – Norte: x[-2.85,-0.40] z[-2.85,-1.50]
-	//   NW – Oeste: x[-2.85,-2.05] z[-1.50,-0.40]
-	//   NE – Norte: x[+0.40,+2.85] z[-2.85,-1.50]
-	//   NE – Este:  x[+2.05,+2.85] z[-1.50,-0.40]
-	//   SW – Sur:   x[-2.85,-0.40] z[+1.50,+2.85]
-	//   SW – Oeste: x[-2.85,-2.05] z[+0.40,+1.50]
-	//   SE – Sur:   x[+0.40,+2.85] z[+1.50,+2.85]
-	//   SE – Este:  x[+2.05,+2.85] z[+0.40,+1.50]
-	//
-	// Formato: { x, z, escala }
-	// ─────────────────────────────────────────────────────────────────────
-	struct TreeInstance { float x, z, scale; };
-
-	const std::vector<TreeInstance> trees = {
-		// ── Cuadrante NW – bloque Norte (x[-2.85,-0.40] z[-2.85,-1.50])
-		{ -2.40f, -2.50f, 0.90f },
-		{ -1.70f, -2.40f, 0.82f },
-		{ -1.00f, -2.30f, 0.78f },
-		{ -2.60f, -1.80f, 0.86f },
-		{ -1.90f, -1.70f, 0.80f },
-		{ -1.20f, -1.60f, 0.76f },
-		{ -0.70f, -2.10f, 0.72f },
-
-		// ── Cuadrante NW – bloque Oeste (x[-2.85,-2.05] z[-1.50,-0.40])
-		{ -2.55f, -1.10f, 0.74f },
-		{ -2.45f, -0.75f, 0.70f },
-
-		// ── Cuadrante NE – bloque Norte (x[+0.40,+2.85] z[-2.85,-1.50])
-		{  0.90f, -2.30f, 0.76f },
-		{  1.60f, -2.40f, 0.82f },
-		{  2.30f, -2.50f, 0.88f },
-		{  1.10f, -1.65f, 0.74f },
-		{  1.85f, -1.70f, 0.80f },
-		{  2.55f, -1.80f, 0.84f },
-		{  0.65f, -2.10f, 0.70f },
-
-		// ── Cuadrante NE – bloque Este (x[+2.05,+2.85] z[-1.50,-0.40])
-		{  2.45f, -1.10f, 0.72f },
-		{  2.55f, -0.75f, 0.68f },
-
-		// ── Cuadrante SW – bloque Sur (x[-2.85,-0.40] z[+1.50,+2.85])
-		{ -2.40f,  2.50f, 0.90f },
-		{ -1.70f,  2.40f, 0.84f },
-		{ -1.00f,  2.30f, 0.78f },
-		{ -2.60f,  1.80f, 0.86f },
-		{ -1.90f,  1.70f, 0.80f },
-		{ -1.20f,  1.60f, 0.76f },
-		{ -0.70f,  2.10f, 0.72f },
-
-		// ── Cuadrante SW – bloque Oeste (x[-2.85,-2.05] z[+0.40,+1.50])
-		{ -2.55f,  0.75f, 0.70f },
-		{ -2.45f,  1.10f, 0.74f },
-
-		// ── Cuadrante SE – bloque Sur (x[+0.40,+2.85] z[+1.50,+2.85])
-		{  0.90f,  2.30f, 0.76f },
-		{  1.60f,  2.40f, 0.82f },
-		{  2.30f,  2.50f, 0.88f },
-		{  1.10f,  1.65f, 0.76f },
-		{  1.85f,  1.70f, 0.80f },
-		{  2.55f,  1.80f, 0.84f },
-		{  0.65f,  2.10f, 0.72f },
-
-		// ── Cuadrante SE – bloque Este (x[+2.05,+2.85] z[+0.40,+1.50])
-		{  2.45f,  0.75f, 0.70f },
-		{  2.55f,  1.10f, 0.72f },
-	};
+	// Escala metros -> unidades de escena (60 m -> 6.0 unidades)
+	const float SCENE_SCALE = 0.1f;
 
 	// ────────────────────────────────────────────────────────────────────────
 	while (!glfwWindowShouldClose(window))
@@ -444,27 +374,10 @@ int main()
 		glUniformMatrix4fv(glGetUniformLocation(shader.Program, "projection"), 1, GL_FALSE, glm::value_ptr(projection));
 		glUniformMatrix4fv(glGetUniformLocation(shader.Program, "view"), 1, GL_FALSE, glm::value_ptr(view));
 
-		// ── Terreno / Plaza (7 zonas texturizadas segun el plano arquitectonico)
-		// Zona 1: Base Pavimento interior
-		// Zona 2: Calles exteriores (asfalto)
-		// Zona 3: Banquetas perimetrales
-		// Zona 4: Andadores principales en cruz (piedra)
-		// Zona 5: Rotonda central (banqueta + pavimento)
-		// Zona 6: Tierra / suelo de arboles (textura_suelo_arbol)
-		// Zona 7: Jardineras Formales (textura_patio_piedra)
-		glm::mat4 model(1.0f);
+		// ── Plaza Colonial completa (plano maestro 60 m x 60 m, escalada 1:10)
+		glm::mat4 model = glm::scale(glm::mat4(1.0f), glm::vec3(SCENE_SCALE));
 		glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		plaza.Draw(shader);
-
-		// ── Arboles en zonas de tierra (SOLO en AreaVerde, no en Jardineras)
-		for (const auto& t : trees)
-		{
-			glm::mat4 tMat(1.0f);
-			tMat = glm::translate(tMat, glm::vec3(t.x, 0.0f, t.z));
-			tMat = glm::scale(tMat, glm::vec3(t.scale));
-			glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(tMat));
-			treeModel.Draw(shader);
-		}
 
 		// ── Personaje
 		model = character.GetModelMatrix();

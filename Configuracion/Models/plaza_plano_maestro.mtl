@@ -1,0 +1,132 @@
+# -----------------------------------------------------
+# Material Library (.MTL) for plaza_plano_maestro.obj
+# Compatible with Blender 3.x, 4.x, Cycles, and Eevee
+# -----------------------------------------------------
+
+newmtl mat_cantera
+Ka 1.0000 1.0000 1.0000
+Kd 0.9000 0.9000 0.9000
+Ks 0.2000 0.2000 0.2000
+Ns 60.0000
+d 1.0000
+illum 2
+map_Kd cantera_piedra.png
+map_Bump cantera_piedra.png
+
+newmtl mat_asfalto
+Ka 1.0000 1.0000 1.0000
+Kd 0.9000 0.9000 0.9000
+Ks 0.2000 0.2000 0.2000
+Ns 60.0000
+d 1.0000
+illum 2
+map_Kd textura_asfalto_calle.png
+map_Bump textura_asfalto_calle.png
+
+newmtl mat_banqueta_trebol
+Ka 1.0000 1.0000 1.0000
+Kd 0.9000 0.9000 0.9000
+Ks 0.2000 0.2000 0.2000
+Ns 60.0000
+d 1.0000
+illum 2
+map_Kd textura_banqueta.png
+map_Bump textura_banqueta.png
+
+newmtl mat_patio_piedra
+Ka 1.0000 1.0000 1.0000
+Kd 0.9000 0.9000 0.9000
+Ks 0.2000 0.2000 0.2000
+Ns 60.0000
+d 1.0000
+illum 2
+map_Kd textura_patio_piedra.png
+map_Bump textura_patio_piedra.png
+
+newmtl mat_madera
+Ka 1.0000 1.0000 1.0000
+Kd 0.9000 0.9000 0.9000
+Ks 0.2000 0.2000 0.2000
+Ns 60.0000
+d 1.0000
+illum 2
+map_Kd madera_banca.png
+map_Bump madera_banca.png
+
+newmtl mat_hierro
+Ka 1.0000 1.0000 1.0000
+Kd 0.9000 0.9000 0.9000
+Ks 0.2000 0.2000 0.2000
+Ns 60.0000
+d 1.0000
+illum 2
+map_Kd hierro_forjado.png
+map_Bump hierro_forjado.png
+
+newmtl mat_cobre
+Ka 1.0000 1.0000 1.0000
+Kd 0.9000 0.9000 0.9000
+Ks 0.2000 0.2000 0.2000
+Ns 60.0000
+d 1.0000
+illum 2
+map_Kd techo_cobre.png
+map_Bump techo_cobre.png
+
+newmtl mat_vidrio
+Ka 1.0000 1.0000 1.0000
+Kd 0.9000 0.9000 0.9000
+Ks 0.2000 0.2000 0.2000
+Ns 60.0000
+d 1.0000
+illum 2
+map_Kd textura_patio_piedra.png
+
+newmtl mat_laton
+Ka 1.0000 1.0000 1.0000
+Kd 0.9000 0.9000 0.9000
+Ks 0.2000 0.2000 0.2000
+Ns 60.0000
+d 1.0000
+illum 2
+map_Kd textura_patio_piedra.png
+
+newmtl mat_suelo_arbol
+Ka 1.0000 1.0000 1.0000
+Kd 0.9000 0.9000 0.9000
+Ks 0.2000 0.2000 0.2000
+Ns 60.0000
+d 1.0000
+illum 2
+map_Kd textura_suelo_arbol.png
+map_Bump textura_suelo_arbol.png
+
+newmtl mat_seto
+Ka 1.0000 1.0000 1.0000
+Kd 0.9000 0.9000 0.9000
+Ks 0.2000 0.2000 0.2000
+Ns 60.0000
+d 1.0000
+illum 2
+map_Kd seto_jardin.png
+
+newmtl mat_corteza
+Ka 1.0000 1.0000 1.0000
+Kd 0.9000 0.9000 0.9000
+Ks 0.2000 0.2000 0.2000
+Ns 60.0000
+d 1.0000
+illum 2
+map_Kd corteza_arbol.png
+map_Bump corteza_arbol.png
+
+newmtl mat_follaje
+Ka 1.0000 1.0000 1.0000
+Kd 0.9000 0.9000 0.9000
+Ks 0.2000 0.2000 0.2000
+Ns 60.0000
+d 1.0000
+illum 2
+map_Kd hojas_follaje.png
+map_Bump hojas_follaje.png
+

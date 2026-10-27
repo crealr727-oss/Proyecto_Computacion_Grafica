@@ -76,6 +76,16 @@ StyleCopReport.xml
 *.meta
 *.obj
 *.iobj
+
+# Excepciones para modelos 3D y assets del proyecto (NO ignorar)
+!Configuracion/Models/*.obj
+!Configuracion/Models/*.mtl
+!Configuracion/Models/*.png
+!Configuracion/Models/*.jpg
+!Configuracion/Models/*.jpeg
+!Configuracion/Models/*.glb
+!Configuracion/Models/*.gltf
+!Configuracion/Models/**
 *.pch
 *.pdb
 *.ipdb
