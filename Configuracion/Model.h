@@ -375,7 +375,6 @@ private:
 				// use models where a vertex can have multiple texture coordinates so we always take the first set (0).
 				vec.x = mesh->mTextureCoords[0][i].x;
 				vec.y = mesh->mTextureCoords[0][i].y;
-				vec *= horizontalScale;
 				vertex.TexCoords = vec;
 			}
 			else
@@ -386,7 +385,7 @@ private:
 			vertices.push_back(vertex);
 		}
 
-		std::cout << "[ASSIMP] Mesh " << mesh->mName.C_Str() << " bones count: " << mesh->mNumBones << std::endl;
+		// std::cout << "[ASSIMP] Mesh " << mesh->mName.C_Str() << " bones count: " << mesh->mNumBones << std::endl;
 		for (unsigned int boneIndex = 0; boneIndex < mesh->mNumBones; ++boneIndex)
 		{
 			const aiBone* sourceBone = mesh->mBones[boneIndex];
@@ -604,13 +603,27 @@ GLint TextureFromFile(const char *path, string directory)
 {
 	//Generate texture ID and load texture data
 	string filename = string(path);
-	filename = directory + '/' + filename;
+	string fullPath = directory + '/' + filename;
 	int width = 0;
 	int height = 0;
-	unsigned char *image = SOIL_load_image(filename.c_str(), &width, &height, 0, SOIL_LOAD_RGBA);
+	unsigned char *image = SOIL_load_image(fullPath.c_str(), &width, &height, 0, SOIL_LOAD_RGBA);
 	if (image == nullptr || width <= 0 || height <= 0)
 	{
-		std::cerr << "ERROR::TEXTURE::LOAD_FAILED: " << filename
+		string alt1 = "Models/Plaza_Colonial_Blender_3D/" + filename;
+		image = SOIL_load_image(alt1.c_str(), &width, &height, 0, SOIL_LOAD_RGBA);
+		if (image != nullptr && width > 0 && height > 0)
+			fullPath = alt1;
+	}
+	if (image == nullptr || width <= 0 || height <= 0)
+	{
+		string alt2 = "Models/Plaza_Colonial_Blender_3D/textures/" + filename;
+		image = SOIL_load_image(alt2.c_str(), &width, &height, 0, SOIL_LOAD_RGBA);
+		if (image != nullptr && width > 0 && height > 0)
+			fullPath = alt2;
+	}
+	if (image == nullptr || width <= 0 || height <= 0)
+	{
+		std::cerr << "ERROR::TEXTURE::LOAD_FAILED: " << fullPath
 			<< " (" << SOIL_last_result() << ")" << std::endl;
 		if (image != nullptr)
 			SOIL_free_image_data(image);
@@ -629,11 +642,17 @@ GLint TextureFromFile(const char *path, string directory)
 	glPixelStorei(GL_UNPACK_ALIGNMENT, previousUnpackAlignment);
 	glGenerateMipmap(GL_TEXTURE_2D);
 
-	// Parameters
+	// Parameters (UV repeat y filtrado anisotropico de alta calidad para evitar texturas estiradas o borrosas)
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+#ifdef GL_TEXTURE_MAX_ANISOTROPY_EXT
+	GLfloat maxAniso = 0.0f;
+	glGetFloatv(GL_MAX_TEXTURE_MAX_ANISOTROPY_EXT, &maxAniso);
+	if (maxAniso > 0.0f)
+		glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAX_ANISOTROPY_EXT, std::min(maxAniso, 16.0f));
+#endif
 	glBindTexture(GL_TEXTURE_2D, 0);
 	SOIL_free_image_data(image);
 

@@ -1,0 +1,35 @@
+===================================================================
+PAQUETE DE MODELOS 3D PARA BLENDER E INTELIGENCIA ARTIFICIAL (IA)
+Basado exactamente en el plano arquitectónico con Laureles de la India
+===================================================================
+
+ARCHIVOS INCLUIDOS:
+1. MODELOS (.OBJ y .MTL):
+   - kiosko_colonial.obj / .mtl       -> Kiosko colonial octagonal completo
+   - banca_colonial.obj / .mtl        -> Banca de parque (hierro forjado y listones)
+   - laurel_de_la_india.obj / .mtl    -> Árbol Laurel de la India (Ficus retusa)
+   - farol_colonial.obj / .mtl        -> Farol colonial con cristal y remate
+   - arbusto_topiario.obj / .mtl      -> Arbusto topiario podado
+   - personaje_humano.obj / .mtl      -> Modelo humano escala 1:1
+   - plaza_plano_maestro.obj / .mtl   -> Escena completa del plano arquitectónico
+
+2. TEXTURAS (.PNG):
+   - cantera_piedra.png, techo_cobre.png, hierro_forjado.png, madera_banca.png,
+     hojas_follaje.png, corteza_arbol.png, adoquin_plaza.png, seto_jardin.png, tierra_mulch.png
+
+3. SUITE DE COORDENADAS PARA OTRA IA / RECONSTRUCCIÓN:
+   - scene_manifest_ai.json           -> Manifiesto JSON estricto con coordenadas (X, Y, Z, Rot, Bounding)
+   - coordenadas_plano_ia.csv         -> Tabla CSV para hojas de cálculo, Unity o Unreal Data Tables
+   - posicionar_objetos_blender.py    -> Script Python que instancia y posiciona los modelos en Blender
+   - PROMPT_COORDENADAS_IA.md         -> Prompt maestro listo para copiar y pegar en ChatGPT, Claude o Gemini
+
+4. AUTOMATIZACIÓN EN BLENDER:
+   - import_to_blender.py             -> Carga automática de modelos con texturas y nodos PBR en Blender
+
+CÓMO IMPORTAR EN BLENDER:
+1. Descomprime todo este ZIP en una carpeta de tu computadora.
+2. Abre Blender.
+3. Arriba, ve a la pestaña "Scripting".
+4. Presiona "Open" y selecciona el archivo "import_to_blender.py" o "posicionar_objetos_blender.py".
+5. Haz clic en el botón de Play ▶ o presiona Alt + P.
+===================================================================

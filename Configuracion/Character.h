@@ -21,11 +21,11 @@
 class Character
 {
 public:
-	Character(const char* dummyPath = nullptr, GLfloat modelScale = 0.14f)
-		: position(0.0f, 0.002f, 0.0f), velocity(0.0f, 0.0f, 0.0f),
-		rotationY(0.0f), modelScale(modelScale), movementSpeed(0.42f), acceleration(7.5f),
-		rotationSpeed(9.5f), gravity(9.81f), groundHeight(0.002f),
-		collisionRadius(0.90f * modelScale + 0.02f),
+	Character(const char* dummyPath = nullptr, GLfloat modelScale = 1.0f)
+		: position(0.0f, 0.155f, 15.0f), velocity(0.0f, 0.0f, 0.0f),
+		rotationY(0.0f), modelScale(modelScale), movementSpeed(3.8f), acceleration(18.0f),
+		rotationSpeed(9.5f), gravity(9.81f), groundHeight(0.152f),
+		collisionRadius(0.45f * modelScale),
 		walkCycle(0.0f), idleCycle(0.0f),
 		hipPitchL(0.0f), hipPitchR(0.0f), kneePitchL(0.0f), kneePitchR(0.0f), anklePitchL(0.0f), anklePitchR(0.0f),
 		armPitchL(0.0f), armPitchR(0.0f), elbowPitchL(0.0f), elbowPitchR(0.0f),
@@ -212,6 +212,8 @@ public:
 	GLfloat GetRotation() const { return rotationY; }
 	GLfloat GetModelScale() const { return modelScale; }
 	bool IsMoving() const { return glm::length(glm::vec2(velocity.x, velocity.z)) > movementSpeed * 0.08f; }
+	void SetMovementSpeed(GLfloat speed) { movementSpeed = speed; }
+	GLfloat GetMovementSpeed() const { return movementSpeed; }
 
 private:
 	// ────────────────────────────────────────────────────────────────────────
@@ -773,7 +775,15 @@ private:
 			origin.z < terrainMinZ || origin.z > terrainMaxZ)
 			return false;
 
-		const GLfloat distance = (groundHeight - origin.y) / direction.y;
+		// Adaptacion precisa a la cota del suelo de la Plaza Colonial (0.152m andadores, 0.383m esplanada central)
+		float currentGround = groundHeight;
+		float distToCenter = std::sqrt(origin.x * origin.x + origin.z * origin.z);
+		if (distToCenter < 21.35f)
+		{
+			currentGround = 0.383f;
+		}
+
+		const GLfloat distance = (currentGround - origin.y) / direction.y;
 		if (distance < 0.0f)
 			return false;
 
@@ -838,8 +848,8 @@ private:
 	Mesh* footMeshL = nullptr;
 	Mesh* footMeshR = nullptr;
 
-	static constexpr GLfloat terrainMinX = -3.25f;
-	static constexpr GLfloat terrainMaxX = 3.25f;
-	static constexpr GLfloat terrainMinZ = -3.25f;
-	static constexpr GLfloat terrainMaxZ = 3.25f;
+	static constexpr GLfloat terrainMinX = -154.0f;
+	static constexpr GLfloat terrainMaxX = 154.0f;
+	static constexpr GLfloat terrainMinZ = -154.0f;
+	static constexpr GLfloat terrainMaxZ = 154.0f;
 };

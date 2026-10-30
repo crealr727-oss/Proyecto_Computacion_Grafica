@@ -153,6 +153,16 @@ public:
 		this->updateCameraVectors();
 	}
 
+	void SetSpeed(GLfloat speed)
+	{
+		this->movementSpeed = speed;
+	}
+
+	GLfloat GetSpeed() const
+	{
+		return this->movementSpeed;
+	}
+
 private:
 	// Camera Attributes
 	glm::vec3 position;

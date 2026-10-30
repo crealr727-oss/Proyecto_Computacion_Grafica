@@ -18,7 +18,7 @@
 
 const GLint WIDTH = 1600, HEIGHT = 1200;
 // Camara inicial con vista isometrica del terreno completo
-Camera camera(glm::vec3(0.0f, 5.8f, 6.2f), glm::vec3(0.0f, 1.0f, 0.0f), -90.0f, -43.0f);
+Camera camera(glm::vec3(0.0f, 18.0f, 38.0f), glm::vec3(0.0f, 1.0f, 0.0f), -90.0f, -26.0f);
 bool keys[1024] = {};
 GLfloat lastX = 400.0f, lastY = 300.0f;
 bool firstMouse = true;
@@ -34,7 +34,7 @@ void UpdateWindowTitle(GLFWwindow* window);
 Character* controlledCharacter = nullptr;
 bool characterControlMode = true;
 bool followCharacterCamera = true;
-GLfloat tpsDistance = 0.55f;
+GLfloat tpsDistance = 3.8f;
 
 // Shaders
 const GLchar* vertexShaderSource = 
@@ -281,22 +281,22 @@ int main()
 	// laureles, topiarios y portal de columnas (82 objetos segun la matriz).
 	// El OBJ esta en metros; se escala con SCENE_SCALE para encajar en los
 	// limites de movimiento del personaje (+-3.25 unidades).
-	char plazaPath[] = "Models/plaza_plano_maestro.obj";
+	// ── Escena completa: Centro Histórico de Oaxaca (310m x 310m, 9 Cuadrantes)
+	char plazaPath[] = "Models/Plaza_Colonial_Blender_3D/plaza_plano_maestro.obj";
 	Model plaza(plazaPath);
 
-	// ── Personaje controlable
-	char characterPath[] = "Models/ASIAN_MAN_rigged.glb";
-	Character character(characterPath, 0.14f);
+	// ── Personaje humanoide controlable (escala real 1.0 = 1 metro)
+	Character character(nullptr, 1.0f);
 	controlledCharacter = &character;
 
 	UpdateWindowTitle(window);
 
-	// Proyeccion: near corto para ver detalles, far amplio para toda la plaza
+	// Proyeccion optimizada: near=0.1f previene Z-fighting entre planos; far=1200.0f para 310m
 	glm::mat4 projection = glm::perspective(glm::radians(camera.GetZoom()),
-		static_cast<float>(screenWidth) / static_cast<float>(screenHeight), 0.0001f, 120.0f);
+		static_cast<float>(screenWidth) / static_cast<float>(screenHeight), 0.1f, 1200.0f);
 
-	// Escala metros -> unidades de escena (60 m -> 6.0 unidades)
-	const float SCENE_SCALE = 0.1f;
+	// Escala 1.0: Sistema de Coordenadas real en metros (1.0 = 1 metro)
+	const float SCENE_SCALE = 1.0f;
 
 	// ────────────────────────────────────────────────────────────────────────
 	while (!glfwWindowShouldClose(window))
@@ -394,11 +394,17 @@ int main()
 
 void DoMovement()
 {
+	const bool shiftHeld = keys[GLFW_KEY_LEFT_SHIFT] || keys[GLFW_KEY_RIGHT_SHIFT];
+
 	if (characterControlMode && controlledCharacter != nullptr)
 	{
+		controlledCharacter->SetMovementSpeed(shiftHeld ? 7.2f : 3.8f);
 		controlledCharacter->Update(deltaTime, keys, camera.GetFront());
 		return;
 	}
+
+	const float camSpeed = shiftHeld ? 36.0f : 15.0f;
+	camera.SetSpeed(camSpeed);
 
 	if (keys[GLFW_KEY_W] || keys[GLFW_KEY_UP])
 		camera.ProcessKeyboard(FORWARD, deltaTime);
@@ -432,11 +438,11 @@ void KeyCallback(GLFWwindow* window, int key, int scancode, int action, int mode
 void UpdateWindowTitle(GLFWwindow* window)
 {
 	if (!characterControlMode)
-		glfwSetWindowTitle(window, "Zocalo de Oaxaca | Camara Libre (8: Modo Personaje)");
+		glfwSetWindowTitle(window, "Centro Historico de Oaxaca (310m) | Camara Libre [WASD: Volar | Shift: Rapido | 8: Personaje]");
 	else if (followCharacterCamera)
-		glfwSetWindowTitle(window, "Zocalo de Oaxaca | Tercera Persona [WASD: Caminar | Mouse: Orbitar | Rueda: Zoom | C: Libre]");
+		glfwSetWindowTitle(window, "Centro Historico de Oaxaca (310m) | Tercera Persona [WASD: Caminar | Shift: Correr | Rueda: Zoom | 8: Camara Libre]");
 	else
-		glfwSetWindowTitle(window, "Zocalo de Oaxaca | Personaje (C: Camara Tercera Persona)");
+		glfwSetWindowTitle(window, "Centro Historico de Oaxaca (310m) | Personaje Libre (C: Camara Tercera Persona)");
 }
 
 void MouseCallback(GLFWwindow* window, double xPos, double yPos)
@@ -462,8 +468,8 @@ void MouseCallback(GLFWwindow* window, double xPos, double yPos)
 
 void ScrollCallback(GLFWwindow* window, double xOffset, double yOffset)
 {
-	tpsDistance -= static_cast<GLfloat>(yOffset) * 0.05f;
-	if (tpsDistance < 0.20f) tpsDistance = 0.20f;
-	if (tpsDistance > 1.80f) tpsDistance = 1.80f;
+	tpsDistance -= static_cast<GLfloat>(yOffset) * 0.35f;
+	if (tpsDistance < 1.20f) tpsDistance = 1.20f;
+	if (tpsDistance > 16.0f) tpsDistance = 16.0f;
 }
 

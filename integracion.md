@@ -51,3 +51,27 @@ Pendiente para la siguiente iteracion: sustituir el rectangulo equivalente por e
 - WASD controla al personaje en modo activo; C alterna entre camara de seguimiento y vista libre. Fuera del modo de personaje, WASD conserva el movimiento de la camara.
 - `Configuracion/Model.h` omite mapas difusos que no se pudieron cargar para que el material se renderice con el color base en vez de enlazar una textura OpenGL invalida.
 - El archivo `ASIAN MAN.mtl` referencia imagenes bajo una ruta absoluta de Descargas que no existe en este equipo. El modelo se carga sin esos mapas; se requieren las texturas originales copiadas a `Models/Textures` y rutas relativas en el MTL para recuperar sus colores/texturas.
+
+### 2026-10-30 - Integracion del Plano Maestro: Centro Historico de Oaxaca (Plaza Colonial 3D / 310m x 310m)
+
+Integracion completa del paquete `Plaza_Colonial_Blender_3D` y su matriz espacial de 9 cuadrantes urbanos:
+
+1. **Escenario y Cuadrantes Urbanos (Escala 1:1 en Metros)**:
+   - Carga del diorama maestro `Models/Plaza_Colonial_Blender_3D/plaza_plano_maestro.obj` (310.0m x 310.0m, 96,100 m²).
+   - Incluye Cuadrante 5 (Zocalo central y Kiosko colonial octagonal), Cuadrante 4 (Catedral Metropolitana de Cantera Verde y Alameda de Leon), Cuadrante 6 (Palacio de Gobierno y Portal de Mercaderes), y los 6 cuadrantes de manzanas coloniales perimetrales con red vial de 2 carriles.
+   - Posicionamiento exacto de los 110 elementos del plano maestro: 1 Kiosko central, 32 faroles coloniales (8 en esplanada circular, 8 en esquinas de patios, 16 en andadores), 20 bancas de hierro y madera (12 en patios, 8 en andadores), 28 Laureles de la India en jardineras L, 4 arbustos topiarios esculpidos y 25 columnas de arquería colonial.
+
+2. **Cuidado de UVs y Eliminacion de Texturas Estiradas**:
+   - En `Configuracion/Model.h`: eliminada la alteracion artificial de coordenadas de textura (`vec *= horizontalScale`), preservando intacto el desempaquetado UV nativo de cada malla.
+   - Activado filtrado anisotropico de alta calidad (`GL_TEXTURE_MAX_ANISOTROPY_EXT` a 16x) junto con `GL_REPEAT` y mipmaps lineales, garantizando nitidez en angulos rasantes en empedrados, asfalto y cantera sin difuminado ni estiramiento.
+   - Corregido en `plaza_plano_maestro.mtl`: `mat_calle_completa` vinculado a `textura_calle_completa.png` (en vez de textura de piedra estirada 19x), y generadas texturas dedicadas `textura_vidrio.png` y `textura_laton.png` para faroles coloniales.
+
+3. **Prevencion de Planos Sobrepuestos (Anti Z-Fighting)**:
+   - Optimizada la matriz de proyeccion en `Main.cpp`: near plane ajustado a `0.1f` (en lugar de `0.0001f`), incrementando en mas de 1,000x la precision del depth buffer de 24 bits y eliminando el parpadeo entre la calzada (-0.245m), cruceros (-0.243m), banquetas (0.150m) y piso del zocalo (0.152m).
+   - En `import_to_blender.py`: estructurado el flujo de importacion para cargar el plano maestro unificado sin instanciar duplicados de prototipos en el origen (0,0,0), evitando caras coincidentes.
+
+4. **Navegacion, Personaje y Camara**:
+   - El personaje humanoide ahora opera en escala real 1:1 (`modelScale = 1.0f`, altura ~1.80m), con velocidad de caminata de 3.8 m/s y carrera a 7.2 m/s con Shift.
+   - Limites de movimiento expandidos a `[-154.0m, +154.0m]` para recorrer los 9 cuadrantes urbanos.
+   - Camara en tercera persona (TPS) calibrada a 3.8m con zoom por rueda del raton (`1.2m` a `16.0m`).
+   - Modo de camara libre (tecla 8) con velocidad adaptable (`15.0 m/s`, `36.0 m/s` con Shift) para sobrevuelo general de la maqueta.

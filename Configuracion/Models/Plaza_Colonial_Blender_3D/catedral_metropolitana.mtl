@@ -1,0 +1,84 @@
+# -----------------------------------------------------
+# Material Library (.MTL) for catedral_metropolitana.obj
+# Compatible with Blender 3.x, 4.x, Cycles, and Eevee
+# -----------------------------------------------------
+
+newmtl mat_catedral_caliza
+Ka 1.0000 1.0000 1.0000
+Kd 0.9000 0.9000 0.9000
+Ks 0.2000 0.2000 0.2000
+Ns 60.0000
+d 1.0000
+illum 2
+map_Kd catedral_sillares_caliza.png
+map_Bump catedral_sillares_caliza.png
+
+newmtl mat_cantera_verde_oaxaca
+Ka 1.0000 1.0000 1.0000
+Kd 0.9000 0.9000 0.9000
+Ks 0.2000 0.2000 0.2000
+Ns 60.0000
+d 1.0000
+illum 2
+map_Kd cantera_verde_oaxaca.png
+map_Bump cantera_verde_oaxaca.png
+
+newmtl mat_hierro
+Ka 1.0000 1.0000 1.0000
+Kd 0.9000 0.9000 0.9000
+Ks 0.2000 0.2000 0.2000
+Ns 60.0000
+d 1.0000
+illum 2
+map_Kd hierro_forjado.png
+map_Bump hierro_forjado.png
+
+newmtl mat_catedral_retablo
+Ka 1.0000 1.0000 1.0000
+Kd 0.9000 0.9000 0.9000
+Ks 0.2000 0.2000 0.2000
+Ns 60.0000
+d 1.0000
+illum 2
+map_Kd catedral_cantera_labrada.png
+map_Bump catedral_cantera_labrada.png
+
+newmtl mat_catedral_puerta
+Ka 1.0000 1.0000 1.0000
+Kd 0.9000 0.9000 0.9000
+Ks 0.2000 0.2000 0.2000
+Ns 60.0000
+d 1.0000
+illum 2
+map_Kd catedral_puerta_madera.png
+map_Bump catedral_puerta_madera.png
+
+newmtl mat_cobre
+Ka 1.0000 1.0000 1.0000
+Kd 0.9000 0.9000 0.9000
+Ks 0.2000 0.2000 0.2000
+Ns 60.0000
+d 1.0000
+illum 2
+map_Kd techo_cobre.png
+map_Bump techo_cobre.png
+
+newmtl mat_catedral_pizarra
+Ka 1.0000 1.0000 1.0000
+Kd 0.9000 0.9000 0.9000
+Ks 0.2000 0.2000 0.2000
+Ns 60.0000
+d 1.0000
+illum 2
+map_Kd catedral_techo_pizarra.png
+map_Bump catedral_techo_pizarra.png
+
+newmtl mat_catedral_anexo
+Ka 1.0000 1.0000 1.0000
+Kd 0.9000 0.9000 0.9000
+Ks 0.2000 0.2000 0.2000
+Ns 60.0000
+d 1.0000
+illum 2
+map_Kd catedral_anexo_fachada.png
+

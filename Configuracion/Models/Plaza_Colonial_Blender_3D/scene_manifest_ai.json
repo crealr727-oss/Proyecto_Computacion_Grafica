@@ -1,0 +1,4081 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "schemaVersion": "2.0.0",
+  "generatedFor": "AI 3D Scene Reconstruction & Spatial Interpreters",
+  "timestamp": "2026-10-30T18:30:49.256Z",
+  "metadata": {
+    "projectName": "Centro Histórico de Oaxaca - Plano Maestro 3D (Zócalo & 9 Cuadrantes / 310m)",
+    "description": "Distribución arquitectónica y volumétrica urbana del Centro Histórico de Oaxaca en cuadrícula 3x3 (310m x 310m, 96,100 m²) fiel a Google Maps: Cuadrante 5 (Zócalo y Kiosko detallado), Cuadrante 4 (Catedral Metropolitana de Cantera Verde y Alameda de León), Cuadrante 6 (Palacio de Gobierno y Portal de Mercaderes) y manzanas coloniales perimetrales (1, 2, 3, 7, 8, 9) con red vial de dos carriles y doble raya amarilla.",
+    "overallFootprintMeters": {
+      "width": 310,
+      "depth": 310,
+      "totalAreaM2": 96100
+    },
+    "coordinateSystem": {
+      "origin": "Centro geométrico del Kiosko octagonal en Cuadrante 5 (0, 0, 0)",
+      "axes": "Three.js / WebGL: +X = Este (Derecha), +Y = Altura (Arriba), +Z = Sur (Frente)",
+      "units": "Metros (1 unidad = 1.0 metro real)",
+      "blenderMapping": "Para Blender (Z-Up): X_blender = X, Y_blender = Z, Z_blender = Y. Rot_Z_blender = -Rot_Y_three."
+    },
+    "zones": [
+      {
+        "name": "Cuadrante 5: Zócalo de Oaxaca (Plaza de la Constitución)",
+        "description": "Plaza central monumental con kiosko octagonal, esplanada circular de 41.6m de diámetro, 28 laureles de la india gigantes y 4 andadores cardinales de 14.4m.",
+        "bounds": "X: [-48m, +48m], Z: [-48m, +48m]"
+      },
+      {
+        "name": "Cuadrante 4: Catedral Metropolitana & Alameda de León (Oeste)",
+        "description": "Catedral barroca de tres naves labrada en Cantera Verde de Oaxaca con torres campanario gemelas de 24m, cúpula y explanada arbolada de la Alameda.",
+        "bounds": "X: [-154m, -70m], Z: [-42m, +42m]"
+      },
+      {
+        "name": "Cuadrante 6: Palacio de Gobierno & Portal de Mercaderes (Este)",
+        "description": "Sede gubernamental monumental con Portal de Mercaderes de 12 arcos, patio interior con lonaria textil y casonas coloniales.",
+        "bounds": "X: [+70m, +154m], Z: [-42m, +42m]"
+      },
+      {
+        "name": "Cuadrante 2: Manzana Norte (Portal de las Flores / Independencia)",
+        "description": "Frente norte del Zócalo con arcadas en planta baja, balcones y casonas de dos niveles.",
+        "bounds": "X: [-42m, +42m], Z: [-154m, -70m]"
+      },
+      {
+        "name": "Cuadrante 8: Manzana Sur (Calle Trujano / Bustamante / Cuidado con el Perro)",
+        "description": "Frente comercial colonial sur del Zócalo con locales tradicionales y patios.",
+        "bounds": "X: [-42m, +42m], Z: [+70m, +154m]"
+      },
+      {
+        "name": "Cuadrantes 1, 3, 7, 9: Manzanas Perimetrales Coloniales",
+        "description": "Manzanas urbanas tradicionales con subdivisiones de predios, techumbres de teja de barro rojo y plazoletas.",
+        "bounds": "Cuadrantes de esquina a radio 112m del centro"
+      },
+      {
+        "name": "Red Vial Perimetral de 2 Carriles",
+        "description": "Calles Independencia, Trujano, García Vigil y Vicente Guerrero con asfalto y banquetas de cantera.",
+        "bounds": "Corredores viales de 24.0m de ancho"
+      }
+    ],
+    "totalObjectsCount": 110,
+    "categoriesSummary": {
+      "estructura_central": 1,
+      "farol": 32,
+      "banca": 20,
+      "arbol": 28,
+      "topiario": 4,
+      "columna_portal": 25
+    }
+  },
+  "assets": [
+    {
+      "type": "kiosko",
+      "file": "kiosko_colonial.obj",
+      "mtl": "kiosko_colonial.mtl",
+      "dimensions": {
+        "width": 8.4,
+        "height": 8.5,
+        "depth": 8.4
+      }
+    },
+    {
+      "type": "banca",
+      "file": "banca_colonial.obj",
+      "mtl": "banca_colonial.mtl",
+      "dimensions": {
+        "width": 2.2,
+        "height": 0.9,
+        "depth": 0.8
+      }
+    },
+    {
+      "type": "arbol",
+      "file": "laurel_de_la_india.obj",
+      "mtl": "laurel_de_la_india.mtl",
+      "dimensions": {
+        "width": 5.4,
+        "height": 6.8,
+        "depth": 5.4
+      }
+    },
+    {
+      "type": "farol",
+      "file": "farol_colonial.obj",
+      "mtl": "farol_colonial.mtl",
+      "dimensions": {
+        "width": 0.8,
+        "height": 3.8,
+        "depth": 0.8
+      }
+    },
+    {
+      "type": "topiario",
+      "file": "arbusto_topiario.obj",
+      "mtl": "arbusto_topiario.mtl",
+      "dimensions": {
+        "width": 2.4,
+        "height": 2.2,
+        "depth": 2.4
+      }
+    }
+  ],
+  "objects": [
+    {
+      "id": "kiosko_central_01",
+      "name": "Kiosko Colonial Octagonal",
+      "category": "estructura_central",
+      "modelType": "kiosko",
+      "modelFile": "kiosko_colonial.obj",
+      "position": {
+        "x": 0,
+        "y": 0.38,
+        "z": 0
+      },
+      "rotationDeg": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "rotationRad": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "scale": {
+        "x": 1.25,
+        "y": 1.25,
+        "z": 1.25
+      },
+      "dimensions": {
+        "width": 10.5,
+        "height": 10.6,
+        "depth": 10.5
+      },
+      "zone": "Esplanada Circular Central",
+      "groundSurface": "Piso de cantera tallada circular",
+      "description": "Elemento focal principal de la plaza. Estructura octagonal con cúpula de cobre patinado y columnas de hierro forjado.",
+      "semanticRole": "Punto focal arquitectónico central"
+    },
+    {
+      "id": "farol_esplanada_1",
+      "name": "Farol Esplanada (NE_A)",
+      "category": "farol",
+      "modelType": "farol",
+      "modelFile": "farol_colonial.obj",
+      "position": {
+        "x": 18.2,
+        "y": 0.57,
+        "z": 12.27
+      },
+      "rotationDeg": {
+        "x": 0,
+        "y": -34,
+        "z": 0
+      },
+      "rotationRad": {
+        "x": 0,
+        "y": -0.5934119456780721,
+        "z": 0
+      },
+      "scale": {
+        "x": 0.95,
+        "y": 0.95,
+        "z": 0.95
+      },
+      "dimensions": {
+        "width": 0.8,
+        "height": 3.8,
+        "depth": 0.8
+      },
+      "zone": "Esplanada Circular Central",
+      "groundSurface": "Murete de cantera de jardinera circular",
+      "description": "Farol colonial montado sobre el murete de cantera a 21.95m del centro, dejando 100% libre el paso peatonal. Ángulo: 34°.",
+      "semanticRole": "Iluminación perimetral de esplanada central"
+    },
+    {
+      "id": "farol_esplanada_2",
+      "name": "Farol Esplanada (NE_B)",
+      "category": "farol",
+      "modelType": "farol",
+      "modelFile": "farol_colonial.obj",
+      "position": {
+        "x": 12.27,
+        "y": 0.57,
+        "z": 18.2
+      },
+      "rotationDeg": {
+        "x": 0,
+        "y": -56,
+        "z": 0
+      },
+      "rotationRad": {
+        "x": 0,
+        "y": -0.9773843811168246,
+        "z": 0
+      },
+      "scale": {
+        "x": 0.95,
+        "y": 0.95,
+        "z": 0.95
+      },
+      "dimensions": {
+        "width": 0.8,
+        "height": 3.8,
+        "depth": 0.8
+      },
+      "zone": "Esplanada Circular Central",
+      "groundSurface": "Murete de cantera de jardinera circular",
+      "description": "Farol colonial montado sobre el murete de cantera a 21.95m del centro, dejando 100% libre el paso peatonal. Ángulo: 56°.",
+      "semanticRole": "Iluminación perimetral de esplanada central"
+    },
+    {
+      "id": "farol_esplanada_3",
+      "name": "Farol Esplanada (NW_A)",
+      "category": "farol",
+      "modelType": "farol",
+      "modelFile": "farol_colonial.obj",
+      "position": {
+        "x": -12.27,
+        "y": 0.57,
+        "z": 18.2
+      },
+      "rotationDeg": {
+        "x": 0,
+        "y": -124,
+        "z": 0
+      },
+      "rotationRad": {
+        "x": 0,
+        "y": -2.1642082724729685,
+        "z": 0
+      },
+      "scale": {
+        "x": 0.95,
+        "y": 0.95,
+        "z": 0.95
+      },
+      "dimensions": {
+        "width": 0.8,
+        "height": 3.8,
+        "depth": 0.8
+      },
+      "zone": "Esplanada Circular Central",
+      "groundSurface": "Murete de cantera de jardinera circular",
+      "description": "Farol colonial montado sobre el murete de cantera a 21.95m del centro, dejando 100% libre el paso peatonal. Ángulo: 124°.",
+      "semanticRole": "Iluminación perimetral de esplanada central"
+    },
+    {
+      "id": "farol_esplanada_4",
+      "name": "Farol Esplanada (NW_B)",
+      "category": "farol",
+      "modelType": "farol",
+      "modelFile": "farol_colonial.obj",
+      "position": {
+        "x": -18.2,
+        "y": 0.57,
+        "z": 12.27
+      },
+      "rotationDeg": {
+        "x": 0,
+        "y": -146,
+        "z": 0
+      },
+      "rotationRad": {
+        "x": 0,
+        "y": -2.548180707911721,
+        "z": 0
+      },
+      "scale": {
+        "x": 0.95,
+        "y": 0.95,
+        "z": 0.95
+      },
+      "dimensions": {
+        "width": 0.8,
+        "height": 3.8,
+        "depth": 0.8
+      },
+      "zone": "Esplanada Circular Central",
+      "groundSurface": "Murete de cantera de jardinera circular",
+      "description": "Farol colonial montado sobre el murete de cantera a 21.95m del centro, dejando 100% libre el paso peatonal. Ángulo: 146°.",
+      "semanticRole": "Iluminación perimetral de esplanada central"
+    },
+    {
+      "id": "farol_esplanada_5",
+      "name": "Farol Esplanada (SW_A)",
+      "category": "farol",
+      "modelType": "farol",
+      "modelFile": "farol_colonial.obj",
+      "position": {
+        "x": -18.2,
+        "y": 0.57,
+        "z": -12.27
+      },
+      "rotationDeg": {
+        "x": 0,
+        "y": -214,
+        "z": 0
+      },
+      "rotationRad": {
+        "x": 0,
+        "y": -3.735004599267865,
+        "z": 0
+      },
+      "scale": {
+        "x": 0.95,
+        "y": 0.95,
+        "z": 0.95
+      },
+      "dimensions": {
+        "width": 0.8,
+        "height": 3.8,
+        "depth": 0.8
+      },
+      "zone": "Esplanada Circular Central",
+      "groundSurface": "Murete de cantera de jardinera circular",
+      "description": "Farol colonial montado sobre el murete de cantera a 21.95m del centro, dejando 100% libre el paso peatonal. Ángulo: 214°.",
+      "semanticRole": "Iluminación perimetral de esplanada central"
+    },
+    {
+      "id": "farol_esplanada_6",
+      "name": "Farol Esplanada (SW_B)",
+      "category": "farol",
+      "modelType": "farol",
+      "modelFile": "farol_colonial.obj",
+      "position": {
+        "x": -12.27,
+        "y": 0.57,
+        "z": -18.2
+      },
+      "rotationDeg": {
+        "x": 0,
+        "y": -236,
+        "z": 0
+      },
+      "rotationRad": {
+        "x": 0,
+        "y": -4.118977034706617,
+        "z": 0
+      },
+      "scale": {
+        "x": 0.95,
+        "y": 0.95,
+        "z": 0.95
+      },
+      "dimensions": {
+        "width": 0.8,
+        "height": 3.8,
+        "depth": 0.8
+      },
+      "zone": "Esplanada Circular Central",
+      "groundSurface": "Murete de cantera de jardinera circular",
+      "description": "Farol colonial montado sobre el murete de cantera a 21.95m del centro, dejando 100% libre el paso peatonal. Ángulo: 236°.",
+      "semanticRole": "Iluminación perimetral de esplanada central"
+    },
+    {
+      "id": "farol_esplanada_7",
+      "name": "Farol Esplanada (SE_A)",
+      "category": "farol",
+      "modelType": "farol",
+      "modelFile": "farol_colonial.obj",
+      "position": {
+        "x": 12.27,
+        "y": 0.57,
+        "z": -18.2
+      },
+      "rotationDeg": {
+        "x": 0,
+        "y": -304,
+        "z": 0
+      },
+      "rotationRad": {
+        "x": 0,
+        "y": -5.305800926062761,
+        "z": 0
+      },
+      "scale": {
+        "x": 0.95,
+        "y": 0.95,
+        "z": 0.95
+      },
+      "dimensions": {
+        "width": 0.8,
+        "height": 3.8,
+        "depth": 0.8
+      },
+      "zone": "Esplanada Circular Central",
+      "groundSurface": "Murete de cantera de jardinera circular",
+      "description": "Farol colonial montado sobre el murete de cantera a 21.95m del centro, dejando 100% libre el paso peatonal. Ángulo: 304°.",
+      "semanticRole": "Iluminación perimetral de esplanada central"
+    },
+    {
+      "id": "farol_esplanada_8",
+      "name": "Farol Esplanada (SE_B)",
+      "category": "farol",
+      "modelType": "farol",
+      "modelFile": "farol_colonial.obj",
+      "position": {
+        "x": 18.2,
+        "y": 0.57,
+        "z": -12.27
+      },
+      "rotationDeg": {
+        "x": 0,
+        "y": -326,
+        "z": 0
+      },
+      "rotationRad": {
+        "x": 0,
+        "y": -5.689773361501514,
+        "z": 0
+      },
+      "scale": {
+        "x": 0.95,
+        "y": 0.95,
+        "z": 0.95
+      },
+      "dimensions": {
+        "width": 0.8,
+        "height": 3.8,
+        "depth": 0.8
+      },
+      "zone": "Esplanada Circular Central",
+      "groundSurface": "Murete de cantera de jardinera circular",
+      "description": "Farol colonial montado sobre el murete de cantera a 21.95m del centro, dejando 100% libre el paso peatonal. Ángulo: 326°.",
+      "semanticRole": "Iluminación perimetral de esplanada central"
+    },
+    {
+      "id": "banca_patio_noreste_n",
+      "name": "Banca Patio Noreste (Eje Cardinal)",
+      "category": "banca",
+      "modelType": "banca",
+      "modelFile": "banca_colonial.obj",
+      "position": {
+        "x": 28,
+        "y": 0.272,
+        "z": 35.7
+      },
+      "rotationDeg": {
+        "x": 0,
+        "y": 180,
+        "z": 0
+      },
+      "rotationRad": {
+        "x": 0,
+        "y": 3.141592653589793,
+        "z": 0
+      },
+      "scale": {
+        "x": 1,
+        "y": 1,
+        "z": 1
+      },
+      "dimensions": {
+        "width": 2.2,
+        "height": 0.9,
+        "depth": 0.8
+      },
+      "zone": "Patio Noreste",
+      "groundSurface": "Plinto de cantera sobre terraza pavimentada",
+      "description": "Banca colonial de descanso situada sobre plinto de piedra en el patio formal Noreste.",
+      "semanticRole": "Mobiliario de descanso en plaza pavimentada"
+    },
+    {
+      "id": "banca_patio_noreste_ext",
+      "name": "Banca Patio Noreste (Lateral Exterior)",
+      "category": "banca",
+      "modelType": "banca",
+      "modelFile": "banca_colonial.obj",
+      "position": {
+        "x": 35.7,
+        "y": 0.272,
+        "z": 28
+      },
+      "rotationDeg": {
+        "x": 0,
+        "y": -90,
+        "z": 0
+      },
+      "rotationRad": {
+        "x": 0,
+        "y": -1.5707963267948966,
+        "z": 0
+      },
+      "scale": {
+        "x": 1,
+        "y": 1,
+        "z": 1
+      },
+      "dimensions": {
+        "width": 2.2,
+        "height": 0.9,
+        "depth": 0.8
+      },
+      "zone": "Patio Noreste",
+      "groundSurface": "Plinto de cantera sobre terraza pavimentada",
+      "description": "Banca lateral exterior en el patio formal Noreste.",
+      "semanticRole": "Mobiliario de descanso en plaza pavimentada"
+    },
+    {
+      "id": "banca_patio_noreste_int",
+      "name": "Banca Patio Noreste (Lateral Interior)",
+      "category": "banca",
+      "modelType": "banca",
+      "modelFile": "banca_colonial.obj",
+      "position": {
+        "x": 20.3,
+        "y": 0.272,
+        "z": 28
+      },
+      "rotationDeg": {
+        "x": 0,
+        "y": 90,
+        "z": 0
+      },
+      "rotationRad": {
+        "x": 0,
+        "y": 1.5707963267948966,
+        "z": 0
+      },
+      "scale": {
+        "x": 1,
+        "y": 1,
+        "z": 1
+      },
+      "dimensions": {
+        "width": 2.2,
+        "height": 0.9,
+        "depth": 0.8
+      },
+      "zone": "Patio Noreste",
+      "groundSurface": "Plinto de cantera sobre terraza pavimentada",
+      "description": "Banca lateral interior en el patio formal Noreste.",
+      "semanticRole": "Mobiliario de descanso en plaza pavimentada"
+    },
+    {
+      "id": "farol_patio_noreste_1",
+      "name": "Farol Borde Patio Noreste A",
+      "category": "farol",
+      "modelType": "farol",
+      "modelFile": "farol_colonial.obj",
+      "position": {
+        "x": 25,
+        "y": 0.372,
+        "z": 39.5
+      },
+      "rotationDeg": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "rotationRad": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "scale": {
+        "x": 0.95,
+        "y": 0.95,
+        "z": 0.95
+      },
+      "dimensions": {
+        "width": 0.8,
+        "height": 3.8,
+        "depth": 0.8
+      },
+      "zone": "Patio Noreste",
+      "groundSurface": "Murete perimetral exterior de cantera de terraza",
+      "description": "Farol colonial sobre el murete perimetral exterior del patio formal Noreste, fuera de los andadores peatonales.",
+      "semanticRole": "Iluminación ambiental perimetral de patio"
+    },
+    {
+      "id": "farol_patio_noreste_2",
+      "name": "Farol Borde Patio Noreste B",
+      "category": "farol",
+      "modelType": "farol",
+      "modelFile": "farol_colonial.obj",
+      "position": {
+        "x": 39.5,
+        "y": 0.372,
+        "z": 25
+      },
+      "rotationDeg": {
+        "x": 0,
+        "y": 90,
+        "z": 0
+      },
+      "rotationRad": {
+        "x": 0,
+        "y": 1.5707963267948966,
+        "z": 0
+      },
+      "scale": {
+        "x": 0.95,
+        "y": 0.95,
+        "z": 0.95
+      },
+      "dimensions": {
+        "width": 0.8,
+        "height": 3.8,
+        "depth": 0.8
+      },
+      "zone": "Patio Noreste",
+      "groundSurface": "Murete perimetral exterior de cantera de terraza",
+      "description": "Farol colonial sobre el murete perimetral exterior del patio formal Noreste, fuera de los andadores peatonales.",
+      "semanticRole": "Iluminación ambiental perimetral de patio"
+    },
+    {
+      "id": "laurel_noreste_1",
+      "name": "Laurel de la India Noreste #1",
+      "category": "arbol",
+      "modelType": "arbol",
+      "modelFile": "laurel_de_la_india.obj",
+      "position": {
+        "x": 12,
+        "y": 0.57,
+        "z": 36.5
+      },
+      "rotationDeg": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "rotationRad": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "scale": {
+        "x": 1.48,
+        "y": 1.48,
+        "z": 1.48
+      },
+      "dimensions": {
+        "width": 7.7,
+        "height": 10.4,
+        "depth": 7.7
+      },
+      "zone": "Jardinera en L Noreste",
+      "groundSurface": "Piso de tierra y pasto orgánico dentro de jardinera con murete de cantera",
+      "description": "Árbol Ficus retusa monumental centrado dentro del lecho de tierra y pasto de la jardinera elevada.",
+      "semanticRole": "Arbolado urbano frondoso - Jardinera Brazo Z (Exterior)"
+    },
+    {
+      "id": "laurel_noreste_2",
+      "name": "Laurel de la India Noreste #2",
+      "category": "arbol",
+      "modelType": "arbol",
+      "modelFile": "laurel_de_la_india.obj",
+      "position": {
+        "x": 12,
+        "y": 0.57,
+        "z": 29.2
+      },
+      "rotationDeg": {
+        "x": 0,
+        "y": 43,
+        "z": 0
+      },
+      "rotationRad": {
+        "x": 0,
+        "y": 0.7504915783575616,
+        "z": 0
+      },
+      "scale": {
+        "x": 1.55,
+        "y": 1.55,
+        "z": 1.55
+      },
+      "dimensions": {
+        "width": 8.1,
+        "height": 10.9,
+        "depth": 8.1
+      },
+      "zone": "Jardinera en L Noreste",
+      "groundSurface": "Piso de tierra y pasto orgánico dentro de jardinera con murete de cantera",
+      "description": "Árbol Ficus retusa monumental centrado dentro del lecho de tierra y pasto de la jardinera elevada.",
+      "semanticRole": "Arbolado urbano frondoso - Jardinera Brazo Z (Medio)"
+    },
+    {
+      "id": "laurel_noreste_3",
+      "name": "Laurel de la India Noreste #3",
+      "category": "arbol",
+      "modelType": "arbol",
+      "modelFile": "laurel_de_la_india.obj",
+      "position": {
+        "x": 12,
+        "y": 0.57,
+        "z": 22
+      },
+      "rotationDeg": {
+        "x": 0,
+        "y": 86,
+        "z": 0
+      },
+      "rotationRad": {
+        "x": 0,
+        "y": 1.5009831567151233,
+        "z": 0
+      },
+      "scale": {
+        "x": 1.42,
+        "y": 1.42,
+        "z": 1.42
+      },
+      "dimensions": {
+        "width": 7.4,
+        "height": 9.9,
+        "depth": 7.4
+      },
+      "zone": "Jardinera en L Noreste",
+      "groundSurface": "Piso de tierra y pasto orgánico dentro de jardinera con murete de cantera",
+      "description": "Árbol Ficus retusa monumental centrado dentro del lecho de tierra y pasto de la jardinera elevada.",
+      "semanticRole": "Arbolado urbano frondoso - Jardinera Brazo Z (Interior)"
+    },
+    {
+      "id": "laurel_noreste_4",
+      "name": "Laurel de la India Noreste #4",
+      "category": "arbol",
+      "modelType": "arbol",
+      "modelFile": "laurel_de_la_india.obj",
+      "position": {
+        "x": 16.5,
+        "y": 0.57,
+        "z": 16.5
+      },
+      "rotationDeg": {
+        "x": 0,
+        "y": 129,
+        "z": 0
+      },
+      "rotationRad": {
+        "x": 0,
+        "y": 2.251474735072685,
+        "z": 0
+      },
+      "scale": {
+        "x": 1.62,
+        "y": 1.62,
+        "z": 1.62
+      },
+      "dimensions": {
+        "width": 8.4,
+        "height": 11.3,
+        "depth": 8.4
+      },
+      "zone": "Jardinera en L Noreste",
+      "groundSurface": "Piso de tierra y pasto orgánico dentro de jardinera con murete de cantera",
+      "description": "Árbol Ficus retusa monumental centrado dentro del lecho de tierra y pasto de la jardinera elevada.",
+      "semanticRole": "Arbolado urbano frondoso - Nodo Curvo Central de Jardinera"
+    },
+    {
+      "id": "laurel_noreste_5",
+      "name": "Laurel de la India Noreste #5",
+      "category": "arbol",
+      "modelType": "arbol",
+      "modelFile": "laurel_de_la_india.obj",
+      "position": {
+        "x": 22,
+        "y": 0.57,
+        "z": 12
+      },
+      "rotationDeg": {
+        "x": 0,
+        "y": 172,
+        "z": 0
+      },
+      "rotationRad": {
+        "x": 0,
+        "y": 3.0019663134302466,
+        "z": 0
+      },
+      "scale": {
+        "x": 1.44,
+        "y": 1.44,
+        "z": 1.44
+      },
+      "dimensions": {
+        "width": 7.5,
+        "height": 10.1,
+        "depth": 7.5
+      },
+      "zone": "Jardinera en L Noreste",
+      "groundSurface": "Piso de tierra y pasto orgánico dentro de jardinera con murete de cantera",
+      "description": "Árbol Ficus retusa monumental centrado dentro del lecho de tierra y pasto de la jardinera elevada.",
+      "semanticRole": "Arbolado urbano frondoso - Jardinera Brazo X (Interior)"
+    },
+    {
+      "id": "laurel_noreste_6",
+      "name": "Laurel de la India Noreste #6",
+      "category": "arbol",
+      "modelType": "arbol",
+      "modelFile": "laurel_de_la_india.obj",
+      "position": {
+        "x": 29.2,
+        "y": 0.57,
+        "z": 12
+      },
+      "rotationDeg": {
+        "x": 0,
+        "y": 215,
+        "z": 0
+      },
+      "rotationRad": {
+        "x": 0,
+        "y": 3.752457891787808,
+        "z": 0
+      },
+      "scale": {
+        "x": 1.52,
+        "y": 1.52,
+        "z": 1.52
+      },
+      "dimensions": {
+        "width": 7.9,
+        "height": 10.6,
+        "depth": 7.9
+      },
+      "zone": "Jardinera en L Noreste",
+      "groundSurface": "Piso de tierra y pasto orgánico dentro de jardinera con murete de cantera",
+      "description": "Árbol Ficus retusa monumental centrado dentro del lecho de tierra y pasto de la jardinera elevada.",
+      "semanticRole": "Arbolado urbano frondoso - Jardinera Brazo X (Medio)"
+    },
+    {
+      "id": "laurel_noreste_7",
+      "name": "Laurel de la India Noreste #7",
+      "category": "arbol",
+      "modelType": "arbol",
+      "modelFile": "laurel_de_la_india.obj",
+      "position": {
+        "x": 36.5,
+        "y": 0.57,
+        "z": 12
+      },
+      "rotationDeg": {
+        "x": 0,
+        "y": 258,
+        "z": 0
+      },
+      "rotationRad": {
+        "x": 0,
+        "y": 4.50294947014537,
+        "z": 0
+      },
+      "scale": {
+        "x": 1.46,
+        "y": 1.46,
+        "z": 1.46
+      },
+      "dimensions": {
+        "width": 7.6,
+        "height": 10.2,
+        "depth": 7.6
+      },
+      "zone": "Jardinera en L Noreste",
+      "groundSurface": "Piso de tierra y pasto orgánico dentro de jardinera con murete de cantera",
+      "description": "Árbol Ficus retusa monumental centrado dentro del lecho de tierra y pasto de la jardinera elevada.",
+      "semanticRole": "Arbolado urbano frondoso - Jardinera Brazo X (Exterior)"
+    },
+    {
+      "id": "topiario_esquina_noreste",
+      "name": "Arbusto Topiario Jardinera Noreste",
+      "category": "topiario",
+      "modelType": "topiario",
+      "modelFile": "arbusto_topiario.obj",
+      "position": {
+        "x": 9.2,
+        "y": 0.57,
+        "z": 25.6
+      },
+      "rotationDeg": {
+        "x": 0,
+        "y": 45,
+        "z": 0
+      },
+      "rotationRad": {
+        "x": 0,
+        "y": 0.7853981633974483,
+        "z": 0
+      },
+      "scale": {
+        "x": 1,
+        "y": 1,
+        "z": 1
+      },
+      "dimensions": {
+        "width": 1.3,
+        "height": 1.35,
+        "depth": 1.3
+      },
+      "zone": "Jardinera en L Noreste",
+      "groundSurface": "Lecho de tierra y pasto con murete de cantera",
+      "description": "Arbusto ornamental podado en capas esféricas dentro del lecho de pasto de la jardinera.",
+      "semanticRole": "Vegetación ornamental formal en jardinera"
+    },
+    {
+      "id": "banca_patio_noroeste_n",
+      "name": "Banca Patio Noroeste (Eje Cardinal)",
+      "category": "banca",
+      "modelType": "banca",
+      "modelFile": "banca_colonial.obj",
+      "position": {
+        "x": -28,
+        "y": 0.272,
+        "z": 35.7
+      },
+      "rotationDeg": {
+        "x": 0,
+        "y": 180,
+        "z": 0
+      },
+      "rotationRad": {
+        "x": 0,
+        "y": 3.141592653589793,
+        "z": 0
+      },
+      "scale": {
+        "x": 1,
+        "y": 1,
+        "z": 1
+      },
+      "dimensions": {
+        "width": 2.2,
+        "height": 0.9,
+        "depth": 0.8
+      },
+      "zone": "Patio Noroeste",
+      "groundSurface": "Plinto de cantera sobre terraza pavimentada",
+      "description": "Banca colonial de descanso situada sobre plinto de piedra en el patio formal Noroeste.",
+      "semanticRole": "Mobiliario de descanso en plaza pavimentada"
+    },
+    {
+      "id": "banca_patio_noroeste_ext",
+      "name": "Banca Patio Noroeste (Lateral Exterior)",
+      "category": "banca",
+      "modelType": "banca",
+      "modelFile": "banca_colonial.obj",
+      "position": {
+        "x": -35.7,
+        "y": 0.272,
+        "z": 28
+      },
+      "rotationDeg": {
+        "x": 0,
+        "y": 90,
+        "z": 0
+      },
+      "rotationRad": {
+        "x": 0,
+        "y": 1.5707963267948966,
+        "z": 0
+      },
+      "scale": {
+        "x": 1,
+        "y": 1,
+        "z": 1
+      },
+      "dimensions": {
+        "width": 2.2,
+        "height": 0.9,
+        "depth": 0.8
+      },
+      "zone": "Patio Noroeste",
+      "groundSurface": "Plinto de cantera sobre terraza pavimentada",
+      "description": "Banca lateral exterior en el patio formal Noroeste.",
+      "semanticRole": "Mobiliario de descanso en plaza pavimentada"
+    },
+    {
+      "id": "banca_patio_noroeste_int",
+      "name": "Banca Patio Noroeste (Lateral Interior)",
+      "category": "banca",
+      "modelType": "banca",
+      "modelFile": "banca_colonial.obj",
+      "position": {
+        "x": -20.3,
+        "y": 0.272,
+        "z": 28
+      },
+      "rotationDeg": {
+        "x": 0,
+        "y": -90,
+        "z": 0
+      },
+      "rotationRad": {
+        "x": 0,
+        "y": -1.5707963267948966,
+        "z": 0
+      },
+      "scale": {
+        "x": 1,
+        "y": 1,
+        "z": 1
+      },
+      "dimensions": {
+        "width": 2.2,
+        "height": 0.9,
+        "depth": 0.8
+      },
+      "zone": "Patio Noroeste",
+      "groundSurface": "Plinto de cantera sobre terraza pavimentada",
+      "description": "Banca lateral interior en el patio formal Noroeste.",
+      "semanticRole": "Mobiliario de descanso en plaza pavimentada"
+    },
+    {
+      "id": "farol_patio_noroeste_1",
+      "name": "Farol Borde Patio Noroeste A",
+      "category": "farol",
+      "modelType": "farol",
+      "modelFile": "farol_colonial.obj",
+      "position": {
+        "x": -25,
+        "y": 0.372,
+        "z": 39.5
+      },
+      "rotationDeg": {
+        "x": 0,
+        "y": 90,
+        "z": 0
+      },
+      "rotationRad": {
+        "x": 0,
+        "y": 1.5707963267948966,
+        "z": 0
+      },
+      "scale": {
+        "x": 0.95,
+        "y": 0.95,
+        "z": 0.95
+      },
+      "dimensions": {
+        "width": 0.8,
+        "height": 3.8,
+        "depth": 0.8
+      },
+      "zone": "Patio Noroeste",
+      "groundSurface": "Murete perimetral exterior de cantera de terraza",
+      "description": "Farol colonial sobre el murete perimetral exterior del patio formal Noroeste, fuera de los andadores peatonales.",
+      "semanticRole": "Iluminación ambiental perimetral de patio"
+    },
+    {
+      "id": "farol_patio_noroeste_2",
+      "name": "Farol Borde Patio Noroeste B",
+      "category": "farol",
+      "modelType": "farol",
+      "modelFile": "farol_colonial.obj",
+      "position": {
+        "x": -39.5,
+        "y": 0.372,
+        "z": 25
+      },
+      "rotationDeg": {
+        "x": 0,
+        "y": 180,
+        "z": 0
+      },
+      "rotationRad": {
+        "x": 0,
+        "y": 3.141592653589793,
+        "z": 0
+      },
+      "scale": {
+        "x": 0.95,
+        "y": 0.95,
+        "z": 0.95
+      },
+      "dimensions": {
+        "width": 0.8,
+        "height": 3.8,
+        "depth": 0.8
+      },
+      "zone": "Patio Noroeste",
+      "groundSurface": "Murete perimetral exterior de cantera de terraza",
+      "description": "Farol colonial sobre el murete perimetral exterior del patio formal Noroeste, fuera de los andadores peatonales.",
+      "semanticRole": "Iluminación ambiental perimetral de patio"
+    },
+    {
+      "id": "laurel_noroeste_1",
+      "name": "Laurel de la India Noroeste #1",
+      "category": "arbol",
+      "modelType": "arbol",
+      "modelFile": "laurel_de_la_india.obj",
+      "position": {
+        "x": -12,
+        "y": 0.57,
+        "z": 36.5
+      },
+      "rotationDeg": {
+        "x": 0,
+        "y": 90,
+        "z": 0
+      },
+      "rotationRad": {
+        "x": 0,
+        "y": 1.5707963267948966,
+        "z": 0
+      },
+      "scale": {
+        "x": 1.48,
+        "y": 1.48,
+        "z": 1.48
+      },
+      "dimensions": {
+        "width": 7.7,
+        "height": 10.4,
+        "depth": 7.7
+      },
+      "zone": "Jardinera en L Noroeste",
+      "groundSurface": "Piso de tierra y pasto orgánico dentro de jardinera con murete de cantera",
+      "description": "Árbol Ficus retusa monumental centrado dentro del lecho de tierra y pasto de la jardinera elevada.",
+      "semanticRole": "Arbolado urbano frondoso - Jardinera Brazo Z (Exterior)"
+    },
+    {
+      "id": "laurel_noroeste_2",
+      "name": "Laurel de la India Noroeste #2",
+      "category": "arbol",
+      "modelType": "arbol",
+      "modelFile": "laurel_de_la_india.obj",
+      "position": {
+        "x": -12,
+        "y": 0.57,
+        "z": 29.2
+      },
+      "rotationDeg": {
+        "x": 0,
+        "y": 133,
+        "z": 0
+      },
+      "rotationRad": {
+        "x": 0,
+        "y": 2.321287905152458,
+        "z": 0
+      },
+      "scale": {
+        "x": 1.55,
+        "y": 1.55,
+        "z": 1.55
+      },
+      "dimensions": {
+        "width": 8.1,
+        "height": 10.9,
+        "depth": 8.1
+      },
+      "zone": "Jardinera en L Noroeste",
+      "groundSurface": "Piso de tierra y pasto orgánico dentro de jardinera con murete de cantera",
+      "description": "Árbol Ficus retusa monumental centrado dentro del lecho de tierra y pasto de la jardinera elevada.",
+      "semanticRole": "Arbolado urbano frondoso - Jardinera Brazo Z (Medio)"
+    },
+    {
+      "id": "laurel_noroeste_3",
+      "name": "Laurel de la India Noroeste #3",
+      "category": "arbol",
+      "modelType": "arbol",
+      "modelFile": "laurel_de_la_india.obj",
+      "position": {
+        "x": -12,
+        "y": 0.57,
+        "z": 22
+      },
+      "rotationDeg": {
+        "x": 0,
+        "y": 176,
+        "z": 0
+      },
+      "rotationRad": {
+        "x": 0,
+        "y": 3.07177948351002,
+        "z": 0
+      },
+      "scale": {
+        "x": 1.42,
+        "y": 1.42,
+        "z": 1.42
+      },
+      "dimensions": {
+        "width": 7.4,
+        "height": 9.9,
+        "depth": 7.4
+      },
+      "zone": "Jardinera en L Noroeste",
+      "groundSurface": "Piso de tierra y pasto orgánico dentro de jardinera con murete de cantera",
+      "description": "Árbol Ficus retusa monumental centrado dentro del lecho de tierra y pasto de la jardinera elevada.",
+      "semanticRole": "Arbolado urbano frondoso - Jardinera Brazo Z (Interior)"
+    },
+    {
+      "id": "laurel_noroeste_4",
+      "name": "Laurel de la India Noroeste #4",
+      "category": "arbol",
+      "modelType": "arbol",
+      "modelFile": "laurel_de_la_india.obj",
+      "position": {
+        "x": -16.5,
+        "y": 0.57,
+        "z": 16.5
+      },
+      "rotationDeg": {
+        "x": 0,
+        "y": 219,
+        "z": 0
+      },
+      "rotationRad": {
+        "x": 0,
+        "y": 3.822271061867582,
+        "z": 0
+      },
+      "scale": {
+        "x": 1.62,
+        "y": 1.62,
+        "z": 1.62
+      },
+      "dimensions": {
+        "width": 8.4,
+        "height": 11.3,
+        "depth": 8.4
+      },
+      "zone": "Jardinera en L Noroeste",
+      "groundSurface": "Piso de tierra y pasto orgánico dentro de jardinera con murete de cantera",
+      "description": "Árbol Ficus retusa monumental centrado dentro del lecho de tierra y pasto de la jardinera elevada.",
+      "semanticRole": "Arbolado urbano frondoso - Nodo Curvo Central de Jardinera"
+    },
+    {
+      "id": "laurel_noroeste_5",
+      "name": "Laurel de la India Noroeste #5",
+      "category": "arbol",
+      "modelType": "arbol",
+      "modelFile": "laurel_de_la_india.obj",
+      "position": {
+        "x": -22,
+        "y": 0.57,
+        "z": 12
+      },
+      "rotationDeg": {
+        "x": 0,
+        "y": 262,
+        "z": 0
+      },
+      "rotationRad": {
+        "x": 0,
+        "y": 4.572762640225144,
+        "z": 0
+      },
+      "scale": {
+        "x": 1.44,
+        "y": 1.44,
+        "z": 1.44
+      },
+      "dimensions": {
+        "width": 7.5,
+        "height": 10.1,
+        "depth": 7.5
+      },
+      "zone": "Jardinera en L Noroeste",
+      "groundSurface": "Piso de tierra y pasto orgánico dentro de jardinera con murete de cantera",
+      "description": "Árbol Ficus retusa monumental centrado dentro del lecho de tierra y pasto de la jardinera elevada.",
+      "semanticRole": "Arbolado urbano frondoso - Jardinera Brazo X (Interior)"
+    },
+    {
+      "id": "laurel_noroeste_6",
+      "name": "Laurel de la India Noroeste #6",
+      "category": "arbol",
+      "modelType": "arbol",
+      "modelFile": "laurel_de_la_india.obj",
+      "position": {
+        "x": -29.2,
+        "y": 0.57,
+        "z": 12
+      },
+      "rotationDeg": {
+        "x": 0,
+        "y": 305,
+        "z": 0
+      },
+      "rotationRad": {
+        "x": 0,
+        "y": 5.323254218582705,
+        "z": 0
+      },
+      "scale": {
+        "x": 1.52,
+        "y": 1.52,
+        "z": 1.52
+      },
+      "dimensions": {
+        "width": 7.9,
+        "height": 10.6,
+        "depth": 7.9
+      },
+      "zone": "Jardinera en L Noroeste",
+      "groundSurface": "Piso de tierra y pasto orgánico dentro de jardinera con murete de cantera",
+      "description": "Árbol Ficus retusa monumental centrado dentro del lecho de tierra y pasto de la jardinera elevada.",
+      "semanticRole": "Arbolado urbano frondoso - Jardinera Brazo X (Medio)"
+    },
+    {
+      "id": "laurel_noroeste_7",
+      "name": "Laurel de la India Noroeste #7",
+      "category": "arbol",
+      "modelType": "arbol",
+      "modelFile": "laurel_de_la_india.obj",
+      "position": {
+        "x": -36.5,
+        "y": 0.57,
+        "z": 12
+      },
+      "rotationDeg": {
+        "x": 0,
+        "y": 348,
+        "z": 0
+      },
+      "rotationRad": {
+        "x": 0,
+        "y": 6.073745796940266,
+        "z": 0
+      },
+      "scale": {
+        "x": 1.46,
+        "y": 1.46,
+        "z": 1.46
+      },
+      "dimensions": {
+        "width": 7.6,
+        "height": 10.2,
+        "depth": 7.6
+      },
+      "zone": "Jardinera en L Noroeste",
+      "groundSurface": "Piso de tierra y pasto orgánico dentro de jardinera con murete de cantera",
+      "description": "Árbol Ficus retusa monumental centrado dentro del lecho de tierra y pasto de la jardinera elevada.",
+      "semanticRole": "Arbolado urbano frondoso - Jardinera Brazo X (Exterior)"
+    },
+    {
+      "id": "topiario_esquina_noroeste",
+      "name": "Arbusto Topiario Jardinera Noroeste",
+      "category": "topiario",
+      "modelType": "topiario",
+      "modelFile": "arbusto_topiario.obj",
+      "position": {
+        "x": -9.2,
+        "y": 0.57,
+        "z": 25.6
+      },
+      "rotationDeg": {
+        "x": 0,
+        "y": 135,
+        "z": 0
+      },
+      "rotationRad": {
+        "x": 0,
+        "y": 2.356194490192345,
+        "z": 0
+      },
+      "scale": {
+        "x": 1,
+        "y": 1,
+        "z": 1
+      },
+      "dimensions": {
+        "width": 1.3,
+        "height": 1.35,
+        "depth": 1.3
+      },
+      "zone": "Jardinera en L Noroeste",
+      "groundSurface": "Lecho de tierra y pasto con murete de cantera",
+      "description": "Arbusto ornamental podado en capas esféricas dentro del lecho de pasto de la jardinera.",
+      "semanticRole": "Vegetación ornamental formal en jardinera"
+    },
+    {
+      "id": "banca_patio_suroeste_n",
+      "name": "Banca Patio Suroeste (Eje Cardinal)",
+      "category": "banca",
+      "modelType": "banca",
+      "modelFile": "banca_colonial.obj",
+      "position": {
+        "x": -28,
+        "y": 0.272,
+        "z": -35.7
+      },
+      "rotationDeg": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "rotationRad": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "scale": {
+        "x": 1,
+        "y": 1,
+        "z": 1
+      },
+      "dimensions": {
+        "width": 2.2,
+        "height": 0.9,
+        "depth": 0.8
+      },
+      "zone": "Patio Suroeste",
+      "groundSurface": "Plinto de cantera sobre terraza pavimentada",
+      "description": "Banca colonial de descanso situada sobre plinto de piedra en el patio formal Suroeste.",
+      "semanticRole": "Mobiliario de descanso en plaza pavimentada"
+    },
+    {
+      "id": "banca_patio_suroeste_ext",
+      "name": "Banca Patio Suroeste (Lateral Exterior)",
+      "category": "banca",
+      "modelType": "banca",
+      "modelFile": "banca_colonial.obj",
+      "position": {
+        "x": -35.7,
+        "y": 0.272,
+        "z": -28
+      },
+      "rotationDeg": {
+        "x": 0,
+        "y": 90,
+        "z": 0
+      },
+      "rotationRad": {
+        "x": 0,
+        "y": 1.5707963267948966,
+        "z": 0
+      },
+      "scale": {
+        "x": 1,
+        "y": 1,
+        "z": 1
+      },
+      "dimensions": {
+        "width": 2.2,
+        "height": 0.9,
+        "depth": 0.8
+      },
+      "zone": "Patio Suroeste",
+      "groundSurface": "Plinto de cantera sobre terraza pavimentada",
+      "description": "Banca lateral exterior en el patio formal Suroeste.",
+      "semanticRole": "Mobiliario de descanso en plaza pavimentada"
+    },
+    {
+      "id": "banca_patio_suroeste_int",
+      "name": "Banca Patio Suroeste (Lateral Interior)",
+      "category": "banca",
+      "modelType": "banca",
+      "modelFile": "banca_colonial.obj",
+      "position": {
+        "x": -20.3,
+        "y": 0.272,
+        "z": -28
+      },
+      "rotationDeg": {
+        "x": 0,
+        "y": -90,
+        "z": 0
+      },
+      "rotationRad": {
+        "x": 0,
+        "y": -1.5707963267948966,
+        "z": 0
+      },
+      "scale": {
+        "x": 1,
+        "y": 1,
+        "z": 1
+      },
+      "dimensions": {
+        "width": 2.2,
+        "height": 0.9,
+        "depth": 0.8
+      },
+      "zone": "Patio Suroeste",
+      "groundSurface": "Plinto de cantera sobre terraza pavimentada",
+      "description": "Banca lateral interior en el patio formal Suroeste.",
+      "semanticRole": "Mobiliario de descanso en plaza pavimentada"
+    },
+    {
+      "id": "farol_patio_suroeste_1",
+      "name": "Farol Borde Patio Suroeste A",
+      "category": "farol",
+      "modelType": "farol",
+      "modelFile": "farol_colonial.obj",
+      "position": {
+        "x": -25,
+        "y": 0.372,
+        "z": -39.5
+      },
+      "rotationDeg": {
+        "x": 0,
+        "y": 180,
+        "z": 0
+      },
+      "rotationRad": {
+        "x": 0,
+        "y": 3.141592653589793,
+        "z": 0
+      },
+      "scale": {
+        "x": 0.95,
+        "y": 0.95,
+        "z": 0.95
+      },
+      "dimensions": {
+        "width": 0.8,
+        "height": 3.8,
+        "depth": 0.8
+      },
+      "zone": "Patio Suroeste",
+      "groundSurface": "Murete perimetral exterior de cantera de terraza",
+      "description": "Farol colonial sobre el murete perimetral exterior del patio formal Suroeste, fuera de los andadores peatonales.",
+      "semanticRole": "Iluminación ambiental perimetral de patio"
+    },
+    {
+      "id": "farol_patio_suroeste_2",
+      "name": "Farol Borde Patio Suroeste B",
+      "category": "farol",
+      "modelType": "farol",
+      "modelFile": "farol_colonial.obj",
+      "position": {
+        "x": -39.5,
+        "y": 0.372,
+        "z": -25
+      },
+      "rotationDeg": {
+        "x": 0,
+        "y": 270,
+        "z": 0
+      },
+      "rotationRad": {
+        "x": 0,
+        "y": 4.71238898038469,
+        "z": 0
+      },
+      "scale": {
+        "x": 0.95,
+        "y": 0.95,
+        "z": 0.95
+      },
+      "dimensions": {
+        "width": 0.8,
+        "height": 3.8,
+        "depth": 0.8
+      },
+      "zone": "Patio Suroeste",
+      "groundSurface": "Murete perimetral exterior de cantera de terraza",
+      "description": "Farol colonial sobre el murete perimetral exterior del patio formal Suroeste, fuera de los andadores peatonales.",
+      "semanticRole": "Iluminación ambiental perimetral de patio"
+    },
+    {
+      "id": "laurel_suroeste_1",
+      "name": "Laurel de la India Suroeste #1",
+      "category": "arbol",
+      "modelType": "arbol",
+      "modelFile": "laurel_de_la_india.obj",
+      "position": {
+        "x": -12,
+        "y": 0.57,
+        "z": -36.5
+      },
+      "rotationDeg": {
+        "x": 0,
+        "y": 180,
+        "z": 0
+      },
+      "rotationRad": {
+        "x": 0,
+        "y": 3.141592653589793,
+        "z": 0
+      },
+      "scale": {
+        "x": 1.48,
+        "y": 1.48,
+        "z": 1.48
+      },
+      "dimensions": {
+        "width": 7.7,
+        "height": 10.4,
+        "depth": 7.7
+      },
+      "zone": "Jardinera en L Suroeste",
+      "groundSurface": "Piso de tierra y pasto orgánico dentro de jardinera con murete de cantera",
+      "description": "Árbol Ficus retusa monumental centrado dentro del lecho de tierra y pasto de la jardinera elevada.",
+      "semanticRole": "Arbolado urbano frondoso - Jardinera Brazo Z (Exterior)"
+    },
+    {
+      "id": "laurel_suroeste_2",
+      "name": "Laurel de la India Suroeste #2",
+      "category": "arbol",
+      "modelType": "arbol",
+      "modelFile": "laurel_de_la_india.obj",
+      "position": {
+        "x": -12,
+        "y": 0.57,
+        "z": -29.2
+      },
+      "rotationDeg": {
+        "x": 0,
+        "y": 223,
+        "z": 0
+      },
+      "rotationRad": {
+        "x": 0,
+        "y": 3.8920842319473548,
+        "z": 0
+      },
+      "scale": {
+        "x": 1.55,
+        "y": 1.55,
+        "z": 1.55
+      },
+      "dimensions": {
+        "width": 8.1,
+        "height": 10.9,
+        "depth": 8.1
+      },
+      "zone": "Jardinera en L Suroeste",
+      "groundSurface": "Piso de tierra y pasto orgánico dentro de jardinera con murete de cantera",
+      "description": "Árbol Ficus retusa monumental centrado dentro del lecho de tierra y pasto de la jardinera elevada.",
+      "semanticRole": "Arbolado urbano frondoso - Jardinera Brazo Z (Medio)"
+    },
+    {
+      "id": "laurel_suroeste_3",
+      "name": "Laurel de la India Suroeste #3",
+      "category": "arbol",
+      "modelType": "arbol",
+      "modelFile": "laurel_de_la_india.obj",
+      "position": {
+        "x": -12,
+        "y": 0.57,
+        "z": -22
+      },
+      "rotationDeg": {
+        "x": 0,
+        "y": 266,
+        "z": 0
+      },
+      "rotationRad": {
+        "x": 0,
+        "y": 4.642575810304916,
+        "z": 0
+      },
+      "scale": {
+        "x": 1.42,
+        "y": 1.42,
+        "z": 1.42
+      },
+      "dimensions": {
+        "width": 7.4,
+        "height": 9.9,
+        "depth": 7.4
+      },
+      "zone": "Jardinera en L Suroeste",
+      "groundSurface": "Piso de tierra y pasto orgánico dentro de jardinera con murete de cantera",
+      "description": "Árbol Ficus retusa monumental centrado dentro del lecho de tierra y pasto de la jardinera elevada.",
+      "semanticRole": "Arbolado urbano frondoso - Jardinera Brazo Z (Interior)"
+    },
+    {
+      "id": "laurel_suroeste_4",
+      "name": "Laurel de la India Suroeste #4",
+      "category": "arbol",
+      "modelType": "arbol",
+      "modelFile": "laurel_de_la_india.obj",
+      "position": {
+        "x": -16.5,
+        "y": 0.57,
+        "z": -16.5
+      },
+      "rotationDeg": {
+        "x": 0,
+        "y": 309,
+        "z": 0
+      },
+      "rotationRad": {
+        "x": 0,
+        "y": 5.3930673886624785,
+        "z": 0
+      },
+      "scale": {
+        "x": 1.62,
+        "y": 1.62,
+        "z": 1.62
+      },
+      "dimensions": {
+        "width": 8.4,
+        "height": 11.3,
+        "depth": 8.4
+      },
+      "zone": "Jardinera en L Suroeste",
+      "groundSurface": "Piso de tierra y pasto orgánico dentro de jardinera con murete de cantera",
+      "description": "Árbol Ficus retusa monumental centrado dentro del lecho de tierra y pasto de la jardinera elevada.",
+      "semanticRole": "Arbolado urbano frondoso - Nodo Curvo Central de Jardinera"
+    },
+    {
+      "id": "laurel_suroeste_5",
+      "name": "Laurel de la India Suroeste #5",
+      "category": "arbol",
+      "modelType": "arbol",
+      "modelFile": "laurel_de_la_india.obj",
+      "position": {
+        "x": -22,
+        "y": 0.57,
+        "z": -12
+      },
+      "rotationDeg": {
+        "x": 0,
+        "y": 352,
+        "z": 0
+      },
+      "rotationRad": {
+        "x": 0,
+        "y": 6.14355896702004,
+        "z": 0
+      },
+      "scale": {
+        "x": 1.44,
+        "y": 1.44,
+        "z": 1.44
+      },
+      "dimensions": {
+        "width": 7.5,
+        "height": 10.1,
+        "depth": 7.5
+      },
+      "zone": "Jardinera en L Suroeste",
+      "groundSurface": "Piso de tierra y pasto orgánico dentro de jardinera con murete de cantera",
+      "description": "Árbol Ficus retusa monumental centrado dentro del lecho de tierra y pasto de la jardinera elevada.",
+      "semanticRole": "Arbolado urbano frondoso - Jardinera Brazo X (Interior)"
+    },
+    {
+      "id": "laurel_suroeste_6",
+      "name": "Laurel de la India Suroeste #6",
+      "category": "arbol",
+      "modelType": "arbol",
+      "modelFile": "laurel_de_la_india.obj",
+      "position": {
+        "x": -29.2,
+        "y": 0.57,
+        "z": -12
+      },
+      "rotationDeg": {
+        "x": 0,
+        "y": 35,
+        "z": 0
+      },
+      "rotationRad": {
+        "x": 0,
+        "y": 0.6108652381980153,
+        "z": 0
+      },
+      "scale": {
+        "x": 1.52,
+        "y": 1.52,
+        "z": 1.52
+      },
+      "dimensions": {
+        "width": 7.9,
+        "height": 10.6,
+        "depth": 7.9
+      },
+      "zone": "Jardinera en L Suroeste",
+      "groundSurface": "Piso de tierra y pasto orgánico dentro de jardinera con murete de cantera",
+      "description": "Árbol Ficus retusa monumental centrado dentro del lecho de tierra y pasto de la jardinera elevada.",
+      "semanticRole": "Arbolado urbano frondoso - Jardinera Brazo X (Medio)"
+    },
+    {
+      "id": "laurel_suroeste_7",
+      "name": "Laurel de la India Suroeste #7",
+      "category": "arbol",
+      "modelType": "arbol",
+      "modelFile": "laurel_de_la_india.obj",
+      "position": {
+        "x": -36.5,
+        "y": 0.57,
+        "z": -12
+      },
+      "rotationDeg": {
+        "x": 0,
+        "y": 78,
+        "z": 0
+      },
+      "rotationRad": {
+        "x": 0,
+        "y": 1.361356816555577,
+        "z": 0
+      },
+      "scale": {
+        "x": 1.46,
+        "y": 1.46,
+        "z": 1.46
+      },
+      "dimensions": {
+        "width": 7.6,
+        "height": 10.2,
+        "depth": 7.6
+      },
+      "zone": "Jardinera en L Suroeste",
+      "groundSurface": "Piso de tierra y pasto orgánico dentro de jardinera con murete de cantera",
+      "description": "Árbol Ficus retusa monumental centrado dentro del lecho de tierra y pasto de la jardinera elevada.",
+      "semanticRole": "Arbolado urbano frondoso - Jardinera Brazo X (Exterior)"
+    },
+    {
+      "id": "topiario_esquina_suroeste",
+      "name": "Arbusto Topiario Jardinera Suroeste",
+      "category": "topiario",
+      "modelType": "topiario",
+      "modelFile": "arbusto_topiario.obj",
+      "position": {
+        "x": -9.2,
+        "y": 0.57,
+        "z": -25.6
+      },
+      "rotationDeg": {
+        "x": 0,
+        "y": 225,
+        "z": 0
+      },
+      "rotationRad": {
+        "x": 0,
+        "y": 3.9269908169872414,
+        "z": 0
+      },
+      "scale": {
+        "x": 1,
+        "y": 1,
+        "z": 1
+      },
+      "dimensions": {
+        "width": 1.3,
+        "height": 1.35,
+        "depth": 1.3
+      },
+      "zone": "Jardinera en L Suroeste",
+      "groundSurface": "Lecho de tierra y pasto con murete de cantera",
+      "description": "Arbusto ornamental podado en capas esféricas dentro del lecho de pasto de la jardinera.",
+      "semanticRole": "Vegetación ornamental formal en jardinera"
+    },
+    {
+      "id": "banca_patio_sureste_n",
+      "name": "Banca Patio Sureste (Eje Cardinal)",
+      "category": "banca",
+      "modelType": "banca",
+      "modelFile": "banca_colonial.obj",
+      "position": {
+        "x": 28,
+        "y": 0.272,
+        "z": -35.7
+      },
+      "rotationDeg": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "rotationRad": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "scale": {
+        "x": 1,
+        "y": 1,
+        "z": 1
+      },
+      "dimensions": {
+        "width": 2.2,
+        "height": 0.9,
+        "depth": 0.8
+      },
+      "zone": "Patio Sureste",
+      "groundSurface": "Plinto de cantera sobre terraza pavimentada",
+      "description": "Banca colonial de descanso situada sobre plinto de piedra en el patio formal Sureste.",
+      "semanticRole": "Mobiliario de descanso en plaza pavimentada"
+    },
+    {
+      "id": "banca_patio_sureste_ext",
+      "name": "Banca Patio Sureste (Lateral Exterior)",
+      "category": "banca",
+      "modelType": "banca",
+      "modelFile": "banca_colonial.obj",
+      "position": {
+        "x": 35.7,
+        "y": 0.272,
+        "z": -28
+      },
+      "rotationDeg": {
+        "x": 0,
+        "y": -90,
+        "z": 0
+      },
+      "rotationRad": {
+        "x": 0,
+        "y": -1.5707963267948966,
+        "z": 0
+      },
+      "scale": {
+        "x": 1,
+        "y": 1,
+        "z": 1
+      },
+      "dimensions": {
+        "width": 2.2,
+        "height": 0.9,
+        "depth": 0.8
+      },
+      "zone": "Patio Sureste",
+      "groundSurface": "Plinto de cantera sobre terraza pavimentada",
+      "description": "Banca lateral exterior en el patio formal Sureste.",
+      "semanticRole": "Mobiliario de descanso en plaza pavimentada"
+    },
+    {
+      "id": "banca_patio_sureste_int",
+      "name": "Banca Patio Sureste (Lateral Interior)",
+      "category": "banca",
+      "modelType": "banca",
+      "modelFile": "banca_colonial.obj",
+      "position": {
+        "x": 20.3,
+        "y": 0.272,
+        "z": -28
+      },
+      "rotationDeg": {
+        "x": 0,
+        "y": 90,
+        "z": 0
+      },
+      "rotationRad": {
+        "x": 0,
+        "y": 1.5707963267948966,
+        "z": 0
+      },
+      "scale": {
+        "x": 1,
+        "y": 1,
+        "z": 1
+      },
+      "dimensions": {
+        "width": 2.2,
+        "height": 0.9,
+        "depth": 0.8
+      },
+      "zone": "Patio Sureste",
+      "groundSurface": "Plinto de cantera sobre terraza pavimentada",
+      "description": "Banca lateral interior en el patio formal Sureste.",
+      "semanticRole": "Mobiliario de descanso en plaza pavimentada"
+    },
+    {
+      "id": "farol_patio_sureste_1",
+      "name": "Farol Borde Patio Sureste A",
+      "category": "farol",
+      "modelType": "farol",
+      "modelFile": "farol_colonial.obj",
+      "position": {
+        "x": 25,
+        "y": 0.372,
+        "z": -39.5
+      },
+      "rotationDeg": {
+        "x": 0,
+        "y": 270,
+        "z": 0
+      },
+      "rotationRad": {
+        "x": 0,
+        "y": 4.71238898038469,
+        "z": 0
+      },
+      "scale": {
+        "x": 0.95,
+        "y": 0.95,
+        "z": 0.95
+      },
+      "dimensions": {
+        "width": 0.8,
+        "height": 3.8,
+        "depth": 0.8
+      },
+      "zone": "Patio Sureste",
+      "groundSurface": "Murete perimetral exterior de cantera de terraza",
+      "description": "Farol colonial sobre el murete perimetral exterior del patio formal Sureste, fuera de los andadores peatonales.",
+      "semanticRole": "Iluminación ambiental perimetral de patio"
+    },
+    {
+      "id": "farol_patio_sureste_2",
+      "name": "Farol Borde Patio Sureste B",
+      "category": "farol",
+      "modelType": "farol",
+      "modelFile": "farol_colonial.obj",
+      "position": {
+        "x": 39.5,
+        "y": 0.372,
+        "z": -25
+      },
+      "rotationDeg": {
+        "x": 0,
+        "y": 360,
+        "z": 0
+      },
+      "rotationRad": {
+        "x": 0,
+        "y": 6.283185307179586,
+        "z": 0
+      },
+      "scale": {
+        "x": 0.95,
+        "y": 0.95,
+        "z": 0.95
+      },
+      "dimensions": {
+        "width": 0.8,
+        "height": 3.8,
+        "depth": 0.8
+      },
+      "zone": "Patio Sureste",
+      "groundSurface": "Murete perimetral exterior de cantera de terraza",
+      "description": "Farol colonial sobre el murete perimetral exterior del patio formal Sureste, fuera de los andadores peatonales.",
+      "semanticRole": "Iluminación ambiental perimetral de patio"
+    },
+    {
+      "id": "laurel_sureste_1",
+      "name": "Laurel de la India Sureste #1",
+      "category": "arbol",
+      "modelType": "arbol",
+      "modelFile": "laurel_de_la_india.obj",
+      "position": {
+        "x": 12,
+        "y": 0.57,
+        "z": -36.5
+      },
+      "rotationDeg": {
+        "x": 0,
+        "y": 270,
+        "z": 0
+      },
+      "rotationRad": {
+        "x": 0,
+        "y": 4.71238898038469,
+        "z": 0
+      },
+      "scale": {
+        "x": 1.48,
+        "y": 1.48,
+        "z": 1.48
+      },
+      "dimensions": {
+        "width": 7.7,
+        "height": 10.4,
+        "depth": 7.7
+      },
+      "zone": "Jardinera en L Sureste",
+      "groundSurface": "Piso de tierra y pasto orgánico dentro de jardinera con murete de cantera",
+      "description": "Árbol Ficus retusa monumental centrado dentro del lecho de tierra y pasto de la jardinera elevada.",
+      "semanticRole": "Arbolado urbano frondoso - Jardinera Brazo Z (Exterior)"
+    },
+    {
+      "id": "laurel_sureste_2",
+      "name": "Laurel de la India Sureste #2",
+      "category": "arbol",
+      "modelType": "arbol",
+      "modelFile": "laurel_de_la_india.obj",
+      "position": {
+        "x": 12,
+        "y": 0.57,
+        "z": -29.2
+      },
+      "rotationDeg": {
+        "x": 0,
+        "y": 313,
+        "z": 0
+      },
+      "rotationRad": {
+        "x": 0,
+        "y": 5.462880558742251,
+        "z": 0
+      },
+      "scale": {
+        "x": 1.55,
+        "y": 1.55,
+        "z": 1.55
+      },
+      "dimensions": {
+        "width": 8.1,
+        "height": 10.9,
+        "depth": 8.1
+      },
+      "zone": "Jardinera en L Sureste",
+      "groundSurface": "Piso de tierra y pasto orgánico dentro de jardinera con murete de cantera",
+      "description": "Árbol Ficus retusa monumental centrado dentro del lecho de tierra y pasto de la jardinera elevada.",
+      "semanticRole": "Arbolado urbano frondoso - Jardinera Brazo Z (Medio)"
+    },
+    {
+      "id": "laurel_sureste_3",
+      "name": "Laurel de la India Sureste #3",
+      "category": "arbol",
+      "modelType": "arbol",
+      "modelFile": "laurel_de_la_india.obj",
+      "position": {
+        "x": 12,
+        "y": 0.57,
+        "z": -22
+      },
+      "rotationDeg": {
+        "x": 0,
+        "y": 356,
+        "z": 0
+      },
+      "rotationRad": {
+        "x": 0,
+        "y": 6.213372137099814,
+        "z": 0
+      },
+      "scale": {
+        "x": 1.42,
+        "y": 1.42,
+        "z": 1.42
+      },
+      "dimensions": {
+        "width": 7.4,
+        "height": 9.9,
+        "depth": 7.4
+      },
+      "zone": "Jardinera en L Sureste",
+      "groundSurface": "Piso de tierra y pasto orgánico dentro de jardinera con murete de cantera",
+      "description": "Árbol Ficus retusa monumental centrado dentro del lecho de tierra y pasto de la jardinera elevada.",
+      "semanticRole": "Arbolado urbano frondoso - Jardinera Brazo Z (Interior)"
+    },
+    {
+      "id": "laurel_sureste_4",
+      "name": "Laurel de la India Sureste #4",
+      "category": "arbol",
+      "modelType": "arbol",
+      "modelFile": "laurel_de_la_india.obj",
+      "position": {
+        "x": 16.5,
+        "y": 0.57,
+        "z": -16.5
+      },
+      "rotationDeg": {
+        "x": 0,
+        "y": 39,
+        "z": 0
+      },
+      "rotationRad": {
+        "x": 0,
+        "y": 0.6806784082777885,
+        "z": 0
+      },
+      "scale": {
+        "x": 1.62,
+        "y": 1.62,
+        "z": 1.62
+      },
+      "dimensions": {
+        "width": 8.4,
+        "height": 11.3,
+        "depth": 8.4
+      },
+      "zone": "Jardinera en L Sureste",
+      "groundSurface": "Piso de tierra y pasto orgánico dentro de jardinera con murete de cantera",
+      "description": "Árbol Ficus retusa monumental centrado dentro del lecho de tierra y pasto de la jardinera elevada.",
+      "semanticRole": "Arbolado urbano frondoso - Nodo Curvo Central de Jardinera"
+    },
+    {
+      "id": "laurel_sureste_5",
+      "name": "Laurel de la India Sureste #5",
+      "category": "arbol",
+      "modelType": "arbol",
+      "modelFile": "laurel_de_la_india.obj",
+      "position": {
+        "x": 22,
+        "y": 0.57,
+        "z": -12
+      },
+      "rotationDeg": {
+        "x": 0,
+        "y": 82,
+        "z": 0
+      },
+      "rotationRad": {
+        "x": 0,
+        "y": 1.43116998663535,
+        "z": 0
+      },
+      "scale": {
+        "x": 1.44,
+        "y": 1.44,
+        "z": 1.44
+      },
+      "dimensions": {
+        "width": 7.5,
+        "height": 10.1,
+        "depth": 7.5
+      },
+      "zone": "Jardinera en L Sureste",
+      "groundSurface": "Piso de tierra y pasto orgánico dentro de jardinera con murete de cantera",
+      "description": "Árbol Ficus retusa monumental centrado dentro del lecho de tierra y pasto de la jardinera elevada.",
+      "semanticRole": "Arbolado urbano frondoso - Jardinera Brazo X (Interior)"
+    },
+    {
+      "id": "laurel_sureste_6",
+      "name": "Laurel de la India Sureste #6",
+      "category": "arbol",
+      "modelType": "arbol",
+      "modelFile": "laurel_de_la_india.obj",
+      "position": {
+        "x": 29.2,
+        "y": 0.57,
+        "z": -12
+      },
+      "rotationDeg": {
+        "x": 0,
+        "y": 125,
+        "z": 0
+      },
+      "rotationRad": {
+        "x": 0,
+        "y": 2.1816615649929116,
+        "z": 0
+      },
+      "scale": {
+        "x": 1.52,
+        "y": 1.52,
+        "z": 1.52
+      },
+      "dimensions": {
+        "width": 7.9,
+        "height": 10.6,
+        "depth": 7.9
+      },
+      "zone": "Jardinera en L Sureste",
+      "groundSurface": "Piso de tierra y pasto orgánico dentro de jardinera con murete de cantera",
+      "description": "Árbol Ficus retusa monumental centrado dentro del lecho de tierra y pasto de la jardinera elevada.",
+      "semanticRole": "Arbolado urbano frondoso - Jardinera Brazo X (Medio)"
+    },
+    {
+      "id": "laurel_sureste_7",
+      "name": "Laurel de la India Sureste #7",
+      "category": "arbol",
+      "modelType": "arbol",
+      "modelFile": "laurel_de_la_india.obj",
+      "position": {
+        "x": 36.5,
+        "y": 0.57,
+        "z": -12
+      },
+      "rotationDeg": {
+        "x": 0,
+        "y": 168,
+        "z": 0
+      },
+      "rotationRad": {
+        "x": 0,
+        "y": 2.9321531433504737,
+        "z": 0
+      },
+      "scale": {
+        "x": 1.46,
+        "y": 1.46,
+        "z": 1.46
+      },
+      "dimensions": {
+        "width": 7.6,
+        "height": 10.2,
+        "depth": 7.6
+      },
+      "zone": "Jardinera en L Sureste",
+      "groundSurface": "Piso de tierra y pasto orgánico dentro de jardinera con murete de cantera",
+      "description": "Árbol Ficus retusa monumental centrado dentro del lecho de tierra y pasto de la jardinera elevada.",
+      "semanticRole": "Arbolado urbano frondoso - Jardinera Brazo X (Exterior)"
+    },
+    {
+      "id": "topiario_esquina_sureste",
+      "name": "Arbusto Topiario Jardinera Sureste",
+      "category": "topiario",
+      "modelType": "topiario",
+      "modelFile": "arbusto_topiario.obj",
+      "position": {
+        "x": 9.2,
+        "y": 0.57,
+        "z": -25.6
+      },
+      "rotationDeg": {
+        "x": 0,
+        "y": 315,
+        "z": 0
+      },
+      "rotationRad": {
+        "x": 0,
+        "y": 5.497787143782138,
+        "z": 0
+      },
+      "scale": {
+        "x": 1,
+        "y": 1,
+        "z": 1
+      },
+      "dimensions": {
+        "width": 1.3,
+        "height": 1.35,
+        "depth": 1.3
+      },
+      "zone": "Jardinera en L Sureste",
+      "groundSurface": "Lecho de tierra y pasto con murete de cantera",
+      "description": "Arbusto ornamental podado en capas esféricas dentro del lecho de pasto de la jardinera.",
+      "semanticRole": "Vegetación ornamental formal en jardinera"
+    },
+    {
+      "id": "banca_andador_n_o",
+      "name": "Banca Andador Norte (Oeste)",
+      "category": "banca",
+      "modelType": "banca",
+      "modelFile": "banca_colonial.obj",
+      "position": {
+        "x": -6.35,
+        "y": 0.15,
+        "z": 29.2
+      },
+      "rotationDeg": {
+        "x": 0,
+        "y": 90,
+        "z": 0
+      },
+      "rotationRad": {
+        "x": 0,
+        "y": 1.5707963267948966,
+        "z": 0
+      },
+      "scale": {
+        "x": 0.95,
+        "y": 0.95,
+        "z": 0.95
+      },
+      "dimensions": {
+        "width": 2.2,
+        "height": 0.9,
+        "depth": 0.8
+      },
+      "zone": "Andador Norte",
+      "groundSurface": "Piso de cantera adosado al murete de jardinera",
+      "description": "Banca colonial en andador principal alineada al murete de cantera sin obstruir el paso peatonal.",
+      "semanticRole": "Mobiliario de descanso en andador principal"
+    },
+    {
+      "id": "banca_andador_n_e",
+      "name": "Banca Andador Norte (Este)",
+      "category": "banca",
+      "modelType": "banca",
+      "modelFile": "banca_colonial.obj",
+      "position": {
+        "x": 6.35,
+        "y": 0.15,
+        "z": 29.2
+      },
+      "rotationDeg": {
+        "x": 0,
+        "y": -90,
+        "z": 0
+      },
+      "rotationRad": {
+        "x": 0,
+        "y": -1.5707963267948966,
+        "z": 0
+      },
+      "scale": {
+        "x": 0.95,
+        "y": 0.95,
+        "z": 0.95
+      },
+      "dimensions": {
+        "width": 2.2,
+        "height": 0.9,
+        "depth": 0.8
+      },
+      "zone": "Andador Norte",
+      "groundSurface": "Piso de cantera adosado al murete de jardinera",
+      "description": "Banca colonial en andador principal alineada al murete de cantera sin obstruir el paso peatonal.",
+      "semanticRole": "Mobiliario de descanso en andador principal"
+    },
+    {
+      "id": "banca_andador_s_o",
+      "name": "Banca Andador Sur (Oeste)",
+      "category": "banca",
+      "modelType": "banca",
+      "modelFile": "banca_colonial.obj",
+      "position": {
+        "x": -6.35,
+        "y": 0.15,
+        "z": -29.2
+      },
+      "rotationDeg": {
+        "x": 0,
+        "y": 90,
+        "z": 0
+      },
+      "rotationRad": {
+        "x": 0,
+        "y": 1.5707963267948966,
+        "z": 0
+      },
+      "scale": {
+        "x": 0.95,
+        "y": 0.95,
+        "z": 0.95
+      },
+      "dimensions": {
+        "width": 2.2,
+        "height": 0.9,
+        "depth": 0.8
+      },
+      "zone": "Andador Sur",
+      "groundSurface": "Piso de cantera adosado al murete de jardinera",
+      "description": "Banca colonial en andador principal alineada al murete de cantera sin obstruir el paso peatonal.",
+      "semanticRole": "Mobiliario de descanso en andador principal"
+    },
+    {
+      "id": "banca_andador_s_e",
+      "name": "Banca Andador Sur (Este)",
+      "category": "banca",
+      "modelType": "banca",
+      "modelFile": "banca_colonial.obj",
+      "position": {
+        "x": 6.35,
+        "y": 0.15,
+        "z": -29.2
+      },
+      "rotationDeg": {
+        "x": 0,
+        "y": -90,
+        "z": 0
+      },
+      "rotationRad": {
+        "x": 0,
+        "y": -1.5707963267948966,
+        "z": 0
+      },
+      "scale": {
+        "x": 0.95,
+        "y": 0.95,
+        "z": 0.95
+      },
+      "dimensions": {
+        "width": 2.2,
+        "height": 0.9,
+        "depth": 0.8
+      },
+      "zone": "Andador Sur",
+      "groundSurface": "Piso de cantera adosado al murete de jardinera",
+      "description": "Banca colonial en andador principal alineada al murete de cantera sin obstruir el paso peatonal.",
+      "semanticRole": "Mobiliario de descanso en andador principal"
+    },
+    {
+      "id": "banca_andador_e_s",
+      "name": "Banca Andador Este (Sur)",
+      "category": "banca",
+      "modelType": "banca",
+      "modelFile": "banca_colonial.obj",
+      "position": {
+        "x": 29.2,
+        "y": 0.15,
+        "z": -6.35
+      },
+      "rotationDeg": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "rotationRad": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "scale": {
+        "x": 0.95,
+        "y": 0.95,
+        "z": 0.95
+      },
+      "dimensions": {
+        "width": 2.2,
+        "height": 0.9,
+        "depth": 0.8
+      },
+      "zone": "Andador Este",
+      "groundSurface": "Piso de cantera adosado al murete de jardinera",
+      "description": "Banca colonial en andador principal alineada al murete de cantera sin obstruir el paso peatonal.",
+      "semanticRole": "Mobiliario de descanso en andador principal"
+    },
+    {
+      "id": "banca_andador_e_n",
+      "name": "Banca Andador Este (Norte)",
+      "category": "banca",
+      "modelType": "banca",
+      "modelFile": "banca_colonial.obj",
+      "position": {
+        "x": 29.2,
+        "y": 0.15,
+        "z": 6.35
+      },
+      "rotationDeg": {
+        "x": 0,
+        "y": 180,
+        "z": 0
+      },
+      "rotationRad": {
+        "x": 0,
+        "y": 3.141592653589793,
+        "z": 0
+      },
+      "scale": {
+        "x": 0.95,
+        "y": 0.95,
+        "z": 0.95
+      },
+      "dimensions": {
+        "width": 2.2,
+        "height": 0.9,
+        "depth": 0.8
+      },
+      "zone": "Andador Este",
+      "groundSurface": "Piso de cantera adosado al murete de jardinera",
+      "description": "Banca colonial en andador principal alineada al murete de cantera sin obstruir el paso peatonal.",
+      "semanticRole": "Mobiliario de descanso en andador principal"
+    },
+    {
+      "id": "banca_andador_w_s",
+      "name": "Banca Andador Oeste (Sur)",
+      "category": "banca",
+      "modelType": "banca",
+      "modelFile": "banca_colonial.obj",
+      "position": {
+        "x": -29.2,
+        "y": 0.15,
+        "z": -6.35
+      },
+      "rotationDeg": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "rotationRad": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "scale": {
+        "x": 0.95,
+        "y": 0.95,
+        "z": 0.95
+      },
+      "dimensions": {
+        "width": 2.2,
+        "height": 0.9,
+        "depth": 0.8
+      },
+      "zone": "Andador Oeste",
+      "groundSurface": "Piso de cantera adosado al murete de jardinera",
+      "description": "Banca colonial en andador principal alineada al murete de cantera sin obstruir el paso peatonal.",
+      "semanticRole": "Mobiliario de descanso en andador principal"
+    },
+    {
+      "id": "banca_andador_w_n",
+      "name": "Banca Andador Oeste (Norte)",
+      "category": "banca",
+      "modelType": "banca",
+      "modelFile": "banca_colonial.obj",
+      "position": {
+        "x": -29.2,
+        "y": 0.15,
+        "z": 6.35
+      },
+      "rotationDeg": {
+        "x": 0,
+        "y": 180,
+        "z": 0
+      },
+      "rotationRad": {
+        "x": 0,
+        "y": 3.141592653589793,
+        "z": 0
+      },
+      "scale": {
+        "x": 0.95,
+        "y": 0.95,
+        "z": 0.95
+      },
+      "dimensions": {
+        "width": 2.2,
+        "height": 0.9,
+        "depth": 0.8
+      },
+      "zone": "Andador Oeste",
+      "groundSurface": "Piso de cantera adosado al murete de jardinera",
+      "description": "Banca colonial en andador principal alineada al murete de cantera sin obstruir el paso peatonal.",
+      "semanticRole": "Mobiliario de descanso en andador principal"
+    },
+    {
+      "id": "farol_avenida_n_o_1",
+      "name": "Farol Andador Norte (Oeste Int)",
+      "category": "farol",
+      "modelType": "farol",
+      "modelFile": "farol_colonial.obj",
+      "position": {
+        "x": -7.45,
+        "y": 0.59,
+        "z": 22.8
+      },
+      "rotationDeg": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "rotationRad": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "scale": {
+        "x": 0.95,
+        "y": 0.95,
+        "z": 0.95
+      },
+      "dimensions": {
+        "width": 0.8,
+        "height": 3.8,
+        "depth": 0.8
+      },
+      "zone": "Andador Norte",
+      "groundSurface": "Murete de cantera de jardinera principal",
+      "description": "Farol colonial montado directamente sobre el murete de cantera de la jardinera para dejar 100% libre el paso peatonal.",
+      "semanticRole": "Iluminación de andador principal"
+    },
+    {
+      "id": "farol_avenida_n_o_2",
+      "name": "Farol Andador Norte (Oeste Ext)",
+      "category": "farol",
+      "modelType": "farol",
+      "modelFile": "farol_colonial.obj",
+      "position": {
+        "x": -7.45,
+        "y": 0.59,
+        "z": 35.6
+      },
+      "rotationDeg": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "rotationRad": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "scale": {
+        "x": 0.95,
+        "y": 0.95,
+        "z": 0.95
+      },
+      "dimensions": {
+        "width": 0.8,
+        "height": 3.8,
+        "depth": 0.8
+      },
+      "zone": "Andador Norte",
+      "groundSurface": "Murete de cantera de jardinera principal",
+      "description": "Farol colonial montado directamente sobre el murete de cantera de la jardinera para dejar 100% libre el paso peatonal.",
+      "semanticRole": "Iluminación de andador principal"
+    },
+    {
+      "id": "farol_avenida_n_e_1",
+      "name": "Farol Andador Norte (Este Int)",
+      "category": "farol",
+      "modelType": "farol",
+      "modelFile": "farol_colonial.obj",
+      "position": {
+        "x": 7.45,
+        "y": 0.59,
+        "z": 22.8
+      },
+      "rotationDeg": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "rotationRad": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "scale": {
+        "x": 0.95,
+        "y": 0.95,
+        "z": 0.95
+      },
+      "dimensions": {
+        "width": 0.8,
+        "height": 3.8,
+        "depth": 0.8
+      },
+      "zone": "Andador Norte",
+      "groundSurface": "Murete de cantera de jardinera principal",
+      "description": "Farol colonial montado directamente sobre el murete de cantera de la jardinera para dejar 100% libre el paso peatonal.",
+      "semanticRole": "Iluminación de andador principal"
+    },
+    {
+      "id": "farol_avenida_n_e_2",
+      "name": "Farol Andador Norte (Este Ext)",
+      "category": "farol",
+      "modelType": "farol",
+      "modelFile": "farol_colonial.obj",
+      "position": {
+        "x": 7.45,
+        "y": 0.59,
+        "z": 35.6
+      },
+      "rotationDeg": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "rotationRad": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "scale": {
+        "x": 0.95,
+        "y": 0.95,
+        "z": 0.95
+      },
+      "dimensions": {
+        "width": 0.8,
+        "height": 3.8,
+        "depth": 0.8
+      },
+      "zone": "Andador Norte",
+      "groundSurface": "Murete de cantera de jardinera principal",
+      "description": "Farol colonial montado directamente sobre el murete de cantera de la jardinera para dejar 100% libre el paso peatonal.",
+      "semanticRole": "Iluminación de andador principal"
+    },
+    {
+      "id": "farol_avenida_s_o_1",
+      "name": "Farol Andador Sur (Oeste Int)",
+      "category": "farol",
+      "modelType": "farol",
+      "modelFile": "farol_colonial.obj",
+      "position": {
+        "x": -7.45,
+        "y": 0.59,
+        "z": -22.8
+      },
+      "rotationDeg": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "rotationRad": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "scale": {
+        "x": 0.95,
+        "y": 0.95,
+        "z": 0.95
+      },
+      "dimensions": {
+        "width": 0.8,
+        "height": 3.8,
+        "depth": 0.8
+      },
+      "zone": "Andador Sur",
+      "groundSurface": "Murete de cantera de jardinera principal",
+      "description": "Farol colonial montado directamente sobre el murete de cantera de la jardinera para dejar 100% libre el paso peatonal.",
+      "semanticRole": "Iluminación de andador principal"
+    },
+    {
+      "id": "farol_avenida_s_o_2",
+      "name": "Farol Andador Sur (Oeste Ext)",
+      "category": "farol",
+      "modelType": "farol",
+      "modelFile": "farol_colonial.obj",
+      "position": {
+        "x": -7.45,
+        "y": 0.59,
+        "z": -35.6
+      },
+      "rotationDeg": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "rotationRad": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "scale": {
+        "x": 0.95,
+        "y": 0.95,
+        "z": 0.95
+      },
+      "dimensions": {
+        "width": 0.8,
+        "height": 3.8,
+        "depth": 0.8
+      },
+      "zone": "Andador Sur",
+      "groundSurface": "Murete de cantera de jardinera principal",
+      "description": "Farol colonial montado directamente sobre el murete de cantera de la jardinera para dejar 100% libre el paso peatonal.",
+      "semanticRole": "Iluminación de andador principal"
+    },
+    {
+      "id": "farol_avenida_s_e_1",
+      "name": "Farol Andador Sur (Este Int)",
+      "category": "farol",
+      "modelType": "farol",
+      "modelFile": "farol_colonial.obj",
+      "position": {
+        "x": 7.45,
+        "y": 0.59,
+        "z": -22.8
+      },
+      "rotationDeg": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "rotationRad": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "scale": {
+        "x": 0.95,
+        "y": 0.95,
+        "z": 0.95
+      },
+      "dimensions": {
+        "width": 0.8,
+        "height": 3.8,
+        "depth": 0.8
+      },
+      "zone": "Andador Sur",
+      "groundSurface": "Murete de cantera de jardinera principal",
+      "description": "Farol colonial montado directamente sobre el murete de cantera de la jardinera para dejar 100% libre el paso peatonal.",
+      "semanticRole": "Iluminación de andador principal"
+    },
+    {
+      "id": "farol_avenida_s_e_2",
+      "name": "Farol Andador Sur (Este Ext)",
+      "category": "farol",
+      "modelType": "farol",
+      "modelFile": "farol_colonial.obj",
+      "position": {
+        "x": 7.45,
+        "y": 0.59,
+        "z": -35.6
+      },
+      "rotationDeg": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "rotationRad": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "scale": {
+        "x": 0.95,
+        "y": 0.95,
+        "z": 0.95
+      },
+      "dimensions": {
+        "width": 0.8,
+        "height": 3.8,
+        "depth": 0.8
+      },
+      "zone": "Andador Sur",
+      "groundSurface": "Murete de cantera de jardinera principal",
+      "description": "Farol colonial montado directamente sobre el murete de cantera de la jardinera para dejar 100% libre el paso peatonal.",
+      "semanticRole": "Iluminación de andador principal"
+    },
+    {
+      "id": "farol_avenida_e_s_1",
+      "name": "Farol Andador Este (Sur Int)",
+      "category": "farol",
+      "modelType": "farol",
+      "modelFile": "farol_colonial.obj",
+      "position": {
+        "x": 22.8,
+        "y": 0.59,
+        "z": -7.45
+      },
+      "rotationDeg": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "rotationRad": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "scale": {
+        "x": 0.95,
+        "y": 0.95,
+        "z": 0.95
+      },
+      "dimensions": {
+        "width": 0.8,
+        "height": 3.8,
+        "depth": 0.8
+      },
+      "zone": "Andador Este",
+      "groundSurface": "Murete de cantera de jardinera principal",
+      "description": "Farol colonial montado directamente sobre el murete de cantera de la jardinera para dejar 100% libre el paso peatonal.",
+      "semanticRole": "Iluminación de andador principal"
+    },
+    {
+      "id": "farol_avenida_e_s_2",
+      "name": "Farol Andador Este (Sur Ext)",
+      "category": "farol",
+      "modelType": "farol",
+      "modelFile": "farol_colonial.obj",
+      "position": {
+        "x": 35.6,
+        "y": 0.59,
+        "z": -7.45
+      },
+      "rotationDeg": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "rotationRad": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "scale": {
+        "x": 0.95,
+        "y": 0.95,
+        "z": 0.95
+      },
+      "dimensions": {
+        "width": 0.8,
+        "height": 3.8,
+        "depth": 0.8
+      },
+      "zone": "Andador Este",
+      "groundSurface": "Murete de cantera de jardinera principal",
+      "description": "Farol colonial montado directamente sobre el murete de cantera de la jardinera para dejar 100% libre el paso peatonal.",
+      "semanticRole": "Iluminación de andador principal"
+    },
+    {
+      "id": "farol_avenida_e_n_1",
+      "name": "Farol Andador Este (Norte Int)",
+      "category": "farol",
+      "modelType": "farol",
+      "modelFile": "farol_colonial.obj",
+      "position": {
+        "x": 22.8,
+        "y": 0.59,
+        "z": 7.45
+      },
+      "rotationDeg": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "rotationRad": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "scale": {
+        "x": 0.95,
+        "y": 0.95,
+        "z": 0.95
+      },
+      "dimensions": {
+        "width": 0.8,
+        "height": 3.8,
+        "depth": 0.8
+      },
+      "zone": "Andador Este",
+      "groundSurface": "Murete de cantera de jardinera principal",
+      "description": "Farol colonial montado directamente sobre el murete de cantera de la jardinera para dejar 100% libre el paso peatonal.",
+      "semanticRole": "Iluminación de andador principal"
+    },
+    {
+      "id": "farol_avenida_e_n_2",
+      "name": "Farol Andador Este (Norte Ext)",
+      "category": "farol",
+      "modelType": "farol",
+      "modelFile": "farol_colonial.obj",
+      "position": {
+        "x": 35.6,
+        "y": 0.59,
+        "z": 7.45
+      },
+      "rotationDeg": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "rotationRad": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "scale": {
+        "x": 0.95,
+        "y": 0.95,
+        "z": 0.95
+      },
+      "dimensions": {
+        "width": 0.8,
+        "height": 3.8,
+        "depth": 0.8
+      },
+      "zone": "Andador Este",
+      "groundSurface": "Murete de cantera de jardinera principal",
+      "description": "Farol colonial montado directamente sobre el murete de cantera de la jardinera para dejar 100% libre el paso peatonal.",
+      "semanticRole": "Iluminación de andador principal"
+    },
+    {
+      "id": "farol_avenida_w_s_1",
+      "name": "Farol Andador Oeste (Sur Int)",
+      "category": "farol",
+      "modelType": "farol",
+      "modelFile": "farol_colonial.obj",
+      "position": {
+        "x": -22.8,
+        "y": 0.59,
+        "z": -7.45
+      },
+      "rotationDeg": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "rotationRad": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "scale": {
+        "x": 0.95,
+        "y": 0.95,
+        "z": 0.95
+      },
+      "dimensions": {
+        "width": 0.8,
+        "height": 3.8,
+        "depth": 0.8
+      },
+      "zone": "Andador Oeste",
+      "groundSurface": "Murete de cantera de jardinera principal",
+      "description": "Farol colonial montado directamente sobre el murete de cantera de la jardinera para dejar 100% libre el paso peatonal.",
+      "semanticRole": "Iluminación de andador principal"
+    },
+    {
+      "id": "farol_avenida_w_s_2",
+      "name": "Farol Andador Oeste (Sur Ext)",
+      "category": "farol",
+      "modelType": "farol",
+      "modelFile": "farol_colonial.obj",
+      "position": {
+        "x": -35.6,
+        "y": 0.59,
+        "z": -7.45
+      },
+      "rotationDeg": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "rotationRad": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "scale": {
+        "x": 0.95,
+        "y": 0.95,
+        "z": 0.95
+      },
+      "dimensions": {
+        "width": 0.8,
+        "height": 3.8,
+        "depth": 0.8
+      },
+      "zone": "Andador Oeste",
+      "groundSurface": "Murete de cantera de jardinera principal",
+      "description": "Farol colonial montado directamente sobre el murete de cantera de la jardinera para dejar 100% libre el paso peatonal.",
+      "semanticRole": "Iluminación de andador principal"
+    },
+    {
+      "id": "farol_avenida_w_n_1",
+      "name": "Farol Andador Oeste (Norte Int)",
+      "category": "farol",
+      "modelType": "farol",
+      "modelFile": "farol_colonial.obj",
+      "position": {
+        "x": -22.8,
+        "y": 0.59,
+        "z": 7.45
+      },
+      "rotationDeg": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "rotationRad": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "scale": {
+        "x": 0.95,
+        "y": 0.95,
+        "z": 0.95
+      },
+      "dimensions": {
+        "width": 0.8,
+        "height": 3.8,
+        "depth": 0.8
+      },
+      "zone": "Andador Oeste",
+      "groundSurface": "Murete de cantera de jardinera principal",
+      "description": "Farol colonial montado directamente sobre el murete de cantera de la jardinera para dejar 100% libre el paso peatonal.",
+      "semanticRole": "Iluminación de andador principal"
+    },
+    {
+      "id": "farol_avenida_w_n_2",
+      "name": "Farol Andador Oeste (Norte Ext)",
+      "category": "farol",
+      "modelType": "farol",
+      "modelFile": "farol_colonial.obj",
+      "position": {
+        "x": -35.6,
+        "y": 0.59,
+        "z": 7.45
+      },
+      "rotationDeg": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "rotationRad": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "scale": {
+        "x": 0.95,
+        "y": 0.95,
+        "z": 0.95
+      },
+      "dimensions": {
+        "width": 0.8,
+        "height": 3.8,
+        "depth": 0.8
+      },
+      "zone": "Andador Oeste",
+      "groundSurface": "Murete de cantera de jardinera principal",
+      "description": "Farol colonial montado directamente sobre el murete de cantera de la jardinera para dejar 100% libre el paso peatonal.",
+      "semanticRole": "Iluminación de andador principal"
+    },
+    {
+      "id": "columna_portal_1",
+      "name": "Columna Portal de Mercaderes #1",
+      "category": "columna_portal",
+      "modelType": "portal",
+      "modelFile": "plaza_plano_maestro.obj",
+      "position": {
+        "x": -46.5,
+        "y": 0.15,
+        "z": -46
+      },
+      "rotationDeg": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "rotationRad": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "scale": {
+        "x": 1,
+        "y": 1,
+        "z": 1
+      },
+      "dimensions": {
+        "width": 1.15,
+        "height": 5.8,
+        "depth": 1.15
+      },
+      "zone": "Portal de Mercaderes (Oeste)",
+      "groundSurface": "Banqueta de piedra exterior",
+      "description": "Columna monumental de cantera labrada con fuste cuadrado y capitel clásico para el pórtico cubierto.",
+      "semanticRole": "Columna estructural de portal perimetral"
+    },
+    {
+      "id": "columna_portal_2",
+      "name": "Columna Portal de Mercaderes #2",
+      "category": "columna_portal",
+      "modelType": "portal",
+      "modelFile": "plaza_plano_maestro.obj",
+      "position": {
+        "x": -46.5,
+        "y": 0.15,
+        "z": -42.17
+      },
+      "rotationDeg": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "rotationRad": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "scale": {
+        "x": 1,
+        "y": 1,
+        "z": 1
+      },
+      "dimensions": {
+        "width": 1.15,
+        "height": 5.8,
+        "depth": 1.15
+      },
+      "zone": "Portal de Mercaderes (Oeste)",
+      "groundSurface": "Banqueta de piedra exterior",
+      "description": "Columna monumental de cantera labrada con fuste cuadrado y capitel clásico para el pórtico cubierto.",
+      "semanticRole": "Columna estructural de portal perimetral"
+    },
+    {
+      "id": "columna_portal_3",
+      "name": "Columna Portal de Mercaderes #3",
+      "category": "columna_portal",
+      "modelType": "portal",
+      "modelFile": "plaza_plano_maestro.obj",
+      "position": {
+        "x": -46.5,
+        "y": 0.15,
+        "z": -38.33
+      },
+      "rotationDeg": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "rotationRad": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "scale": {
+        "x": 1,
+        "y": 1,
+        "z": 1
+      },
+      "dimensions": {
+        "width": 1.15,
+        "height": 5.8,
+        "depth": 1.15
+      },
+      "zone": "Portal de Mercaderes (Oeste)",
+      "groundSurface": "Banqueta de piedra exterior",
+      "description": "Columna monumental de cantera labrada con fuste cuadrado y capitel clásico para el pórtico cubierto.",
+      "semanticRole": "Columna estructural de portal perimetral"
+    },
+    {
+      "id": "columna_portal_4",
+      "name": "Columna Portal de Mercaderes #4",
+      "category": "columna_portal",
+      "modelType": "portal",
+      "modelFile": "plaza_plano_maestro.obj",
+      "position": {
+        "x": -46.5,
+        "y": 0.15,
+        "z": -34.5
+      },
+      "rotationDeg": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "rotationRad": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "scale": {
+        "x": 1,
+        "y": 1,
+        "z": 1
+      },
+      "dimensions": {
+        "width": 1.15,
+        "height": 5.8,
+        "depth": 1.15
+      },
+      "zone": "Portal de Mercaderes (Oeste)",
+      "groundSurface": "Banqueta de piedra exterior",
+      "description": "Columna monumental de cantera labrada con fuste cuadrado y capitel clásico para el pórtico cubierto.",
+      "semanticRole": "Columna estructural de portal perimetral"
+    },
+    {
+      "id": "columna_portal_5",
+      "name": "Columna Portal de Mercaderes #5",
+      "category": "columna_portal",
+      "modelType": "portal",
+      "modelFile": "plaza_plano_maestro.obj",
+      "position": {
+        "x": -46.5,
+        "y": 0.15,
+        "z": -30.67
+      },
+      "rotationDeg": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "rotationRad": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "scale": {
+        "x": 1,
+        "y": 1,
+        "z": 1
+      },
+      "dimensions": {
+        "width": 1.15,
+        "height": 5.8,
+        "depth": 1.15
+      },
+      "zone": "Portal de Mercaderes (Oeste)",
+      "groundSurface": "Banqueta de piedra exterior",
+      "description": "Columna monumental de cantera labrada con fuste cuadrado y capitel clásico para el pórtico cubierto.",
+      "semanticRole": "Columna estructural de portal perimetral"
+    },
+    {
+      "id": "columna_portal_6",
+      "name": "Columna Portal de Mercaderes #6",
+      "category": "columna_portal",
+      "modelType": "portal",
+      "modelFile": "plaza_plano_maestro.obj",
+      "position": {
+        "x": -46.5,
+        "y": 0.15,
+        "z": -26.83
+      },
+      "rotationDeg": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "rotationRad": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "scale": {
+        "x": 1,
+        "y": 1,
+        "z": 1
+      },
+      "dimensions": {
+        "width": 1.15,
+        "height": 5.8,
+        "depth": 1.15
+      },
+      "zone": "Portal de Mercaderes (Oeste)",
+      "groundSurface": "Banqueta de piedra exterior",
+      "description": "Columna monumental de cantera labrada con fuste cuadrado y capitel clásico para el pórtico cubierto.",
+      "semanticRole": "Columna estructural de portal perimetral"
+    },
+    {
+      "id": "columna_portal_7",
+      "name": "Columna Portal de Mercaderes #7",
+      "category": "columna_portal",
+      "modelType": "portal",
+      "modelFile": "plaza_plano_maestro.obj",
+      "position": {
+        "x": -46.5,
+        "y": 0.15,
+        "z": -23
+      },
+      "rotationDeg": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "rotationRad": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "scale": {
+        "x": 1,
+        "y": 1,
+        "z": 1
+      },
+      "dimensions": {
+        "width": 1.15,
+        "height": 5.8,
+        "depth": 1.15
+      },
+      "zone": "Portal de Mercaderes (Oeste)",
+      "groundSurface": "Banqueta de piedra exterior",
+      "description": "Columna monumental de cantera labrada con fuste cuadrado y capitel clásico para el pórtico cubierto.",
+      "semanticRole": "Columna estructural de portal perimetral"
+    },
+    {
+      "id": "columna_portal_8",
+      "name": "Columna Portal de Mercaderes #8",
+      "category": "columna_portal",
+      "modelType": "portal",
+      "modelFile": "plaza_plano_maestro.obj",
+      "position": {
+        "x": -46.5,
+        "y": 0.15,
+        "z": -19.17
+      },
+      "rotationDeg": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "rotationRad": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "scale": {
+        "x": 1,
+        "y": 1,
+        "z": 1
+      },
+      "dimensions": {
+        "width": 1.15,
+        "height": 5.8,
+        "depth": 1.15
+      },
+      "zone": "Portal de Mercaderes (Oeste)",
+      "groundSurface": "Banqueta de piedra exterior",
+      "description": "Columna monumental de cantera labrada con fuste cuadrado y capitel clásico para el pórtico cubierto.",
+      "semanticRole": "Columna estructural de portal perimetral"
+    },
+    {
+      "id": "columna_portal_9",
+      "name": "Columna Portal de Mercaderes #9",
+      "category": "columna_portal",
+      "modelType": "portal",
+      "modelFile": "plaza_plano_maestro.obj",
+      "position": {
+        "x": -46.5,
+        "y": 0.15,
+        "z": -15.33
+      },
+      "rotationDeg": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "rotationRad": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "scale": {
+        "x": 1,
+        "y": 1,
+        "z": 1
+      },
+      "dimensions": {
+        "width": 1.15,
+        "height": 5.8,
+        "depth": 1.15
+      },
+      "zone": "Portal de Mercaderes (Oeste)",
+      "groundSurface": "Banqueta de piedra exterior",
+      "description": "Columna monumental de cantera labrada con fuste cuadrado y capitel clásico para el pórtico cubierto.",
+      "semanticRole": "Columna estructural de portal perimetral"
+    },
+    {
+      "id": "columna_portal_10",
+      "name": "Columna Portal de Mercaderes #10",
+      "category": "columna_portal",
+      "modelType": "portal",
+      "modelFile": "plaza_plano_maestro.obj",
+      "position": {
+        "x": -46.5,
+        "y": 0.15,
+        "z": -11.5
+      },
+      "rotationDeg": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "rotationRad": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "scale": {
+        "x": 1,
+        "y": 1,
+        "z": 1
+      },
+      "dimensions": {
+        "width": 1.15,
+        "height": 5.8,
+        "depth": 1.15
+      },
+      "zone": "Portal de Mercaderes (Oeste)",
+      "groundSurface": "Banqueta de piedra exterior",
+      "description": "Columna monumental de cantera labrada con fuste cuadrado y capitel clásico para el pórtico cubierto.",
+      "semanticRole": "Columna estructural de portal perimetral"
+    },
+    {
+      "id": "columna_portal_11",
+      "name": "Columna Portal de Mercaderes #11",
+      "category": "columna_portal",
+      "modelType": "portal",
+      "modelFile": "plaza_plano_maestro.obj",
+      "position": {
+        "x": -46.5,
+        "y": 0.15,
+        "z": -7.67
+      },
+      "rotationDeg": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "rotationRad": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "scale": {
+        "x": 1,
+        "y": 1,
+        "z": 1
+      },
+      "dimensions": {
+        "width": 1.15,
+        "height": 5.8,
+        "depth": 1.15
+      },
+      "zone": "Portal de Mercaderes (Oeste)",
+      "groundSurface": "Banqueta de piedra exterior",
+      "description": "Columna monumental de cantera labrada con fuste cuadrado y capitel clásico para el pórtico cubierto.",
+      "semanticRole": "Columna estructural de portal perimetral"
+    },
+    {
+      "id": "columna_portal_12",
+      "name": "Columna Portal de Mercaderes #12",
+      "category": "columna_portal",
+      "modelType": "portal",
+      "modelFile": "plaza_plano_maestro.obj",
+      "position": {
+        "x": -46.5,
+        "y": 0.15,
+        "z": -3.83
+      },
+      "rotationDeg": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "rotationRad": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "scale": {
+        "x": 1,
+        "y": 1,
+        "z": 1
+      },
+      "dimensions": {
+        "width": 1.15,
+        "height": 5.8,
+        "depth": 1.15
+      },
+      "zone": "Portal de Mercaderes (Oeste)",
+      "groundSurface": "Banqueta de piedra exterior",
+      "description": "Columna monumental de cantera labrada con fuste cuadrado y capitel clásico para el pórtico cubierto.",
+      "semanticRole": "Columna estructural de portal perimetral"
+    },
+    {
+      "id": "columna_portal_13",
+      "name": "Columna Portal de Mercaderes #13",
+      "category": "columna_portal",
+      "modelType": "portal",
+      "modelFile": "plaza_plano_maestro.obj",
+      "position": {
+        "x": -46.5,
+        "y": 0.15,
+        "z": 0
+      },
+      "rotationDeg": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "rotationRad": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "scale": {
+        "x": 1,
+        "y": 1,
+        "z": 1
+      },
+      "dimensions": {
+        "width": 1.15,
+        "height": 5.8,
+        "depth": 1.15
+      },
+      "zone": "Portal de Mercaderes (Oeste)",
+      "groundSurface": "Banqueta de piedra exterior",
+      "description": "Columna monumental de cantera labrada con fuste cuadrado y capitel clásico para el pórtico cubierto.",
+      "semanticRole": "Columna estructural de portal perimetral"
+    },
+    {
+      "id": "columna_portal_14",
+      "name": "Columna Portal de Mercaderes #14",
+      "category": "columna_portal",
+      "modelType": "portal",
+      "modelFile": "plaza_plano_maestro.obj",
+      "position": {
+        "x": -46.5,
+        "y": 0.15,
+        "z": 3.83
+      },
+      "rotationDeg": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "rotationRad": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "scale": {
+        "x": 1,
+        "y": 1,
+        "z": 1
+      },
+      "dimensions": {
+        "width": 1.15,
+        "height": 5.8,
+        "depth": 1.15
+      },
+      "zone": "Portal de Mercaderes (Oeste)",
+      "groundSurface": "Banqueta de piedra exterior",
+      "description": "Columna monumental de cantera labrada con fuste cuadrado y capitel clásico para el pórtico cubierto.",
+      "semanticRole": "Columna estructural de portal perimetral"
+    },
+    {
+      "id": "columna_portal_15",
+      "name": "Columna Portal de Mercaderes #15",
+      "category": "columna_portal",
+      "modelType": "portal",
+      "modelFile": "plaza_plano_maestro.obj",
+      "position": {
+        "x": -46.5,
+        "y": 0.15,
+        "z": 7.67
+      },
+      "rotationDeg": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "rotationRad": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "scale": {
+        "x": 1,
+        "y": 1,
+        "z": 1
+      },
+      "dimensions": {
+        "width": 1.15,
+        "height": 5.8,
+        "depth": 1.15
+      },
+      "zone": "Portal de Mercaderes (Oeste)",
+      "groundSurface": "Banqueta de piedra exterior",
+      "description": "Columna monumental de cantera labrada con fuste cuadrado y capitel clásico para el pórtico cubierto.",
+      "semanticRole": "Columna estructural de portal perimetral"
+    },
+    {
+      "id": "columna_portal_16",
+      "name": "Columna Portal de Mercaderes #16",
+      "category": "columna_portal",
+      "modelType": "portal",
+      "modelFile": "plaza_plano_maestro.obj",
+      "position": {
+        "x": -46.5,
+        "y": 0.15,
+        "z": 11.5
+      },
+      "rotationDeg": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "rotationRad": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "scale": {
+        "x": 1,
+        "y": 1,
+        "z": 1
+      },
+      "dimensions": {
+        "width": 1.15,
+        "height": 5.8,
+        "depth": 1.15
+      },
+      "zone": "Portal de Mercaderes (Oeste)",
+      "groundSurface": "Banqueta de piedra exterior",
+      "description": "Columna monumental de cantera labrada con fuste cuadrado y capitel clásico para el pórtico cubierto.",
+      "semanticRole": "Columna estructural de portal perimetral"
+    },
+    {
+      "id": "columna_portal_17",
+      "name": "Columna Portal de Mercaderes #17",
+      "category": "columna_portal",
+      "modelType": "portal",
+      "modelFile": "plaza_plano_maestro.obj",
+      "position": {
+        "x": -46.5,
+        "y": 0.15,
+        "z": 15.33
+      },
+      "rotationDeg": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "rotationRad": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "scale": {
+        "x": 1,
+        "y": 1,
+        "z": 1
+      },
+      "dimensions": {
+        "width": 1.15,
+        "height": 5.8,
+        "depth": 1.15
+      },
+      "zone": "Portal de Mercaderes (Oeste)",
+      "groundSurface": "Banqueta de piedra exterior",
+      "description": "Columna monumental de cantera labrada con fuste cuadrado y capitel clásico para el pórtico cubierto.",
+      "semanticRole": "Columna estructural de portal perimetral"
+    },
+    {
+      "id": "columna_portal_18",
+      "name": "Columna Portal de Mercaderes #18",
+      "category": "columna_portal",
+      "modelType": "portal",
+      "modelFile": "plaza_plano_maestro.obj",
+      "position": {
+        "x": -46.5,
+        "y": 0.15,
+        "z": 19.17
+      },
+      "rotationDeg": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "rotationRad": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "scale": {
+        "x": 1,
+        "y": 1,
+        "z": 1
+      },
+      "dimensions": {
+        "width": 1.15,
+        "height": 5.8,
+        "depth": 1.15
+      },
+      "zone": "Portal de Mercaderes (Oeste)",
+      "groundSurface": "Banqueta de piedra exterior",
+      "description": "Columna monumental de cantera labrada con fuste cuadrado y capitel clásico para el pórtico cubierto.",
+      "semanticRole": "Columna estructural de portal perimetral"
+    },
+    {
+      "id": "columna_portal_19",
+      "name": "Columna Portal de Mercaderes #19",
+      "category": "columna_portal",
+      "modelType": "portal",
+      "modelFile": "plaza_plano_maestro.obj",
+      "position": {
+        "x": -46.5,
+        "y": 0.15,
+        "z": 23
+      },
+      "rotationDeg": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "rotationRad": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "scale": {
+        "x": 1,
+        "y": 1,
+        "z": 1
+      },
+      "dimensions": {
+        "width": 1.15,
+        "height": 5.8,
+        "depth": 1.15
+      },
+      "zone": "Portal de Mercaderes (Oeste)",
+      "groundSurface": "Banqueta de piedra exterior",
+      "description": "Columna monumental de cantera labrada con fuste cuadrado y capitel clásico para el pórtico cubierto.",
+      "semanticRole": "Columna estructural de portal perimetral"
+    },
+    {
+      "id": "columna_portal_20",
+      "name": "Columna Portal de Mercaderes #20",
+      "category": "columna_portal",
+      "modelType": "portal",
+      "modelFile": "plaza_plano_maestro.obj",
+      "position": {
+        "x": -46.5,
+        "y": 0.15,
+        "z": 26.83
+      },
+      "rotationDeg": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "rotationRad": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "scale": {
+        "x": 1,
+        "y": 1,
+        "z": 1
+      },
+      "dimensions": {
+        "width": 1.15,
+        "height": 5.8,
+        "depth": 1.15
+      },
+      "zone": "Portal de Mercaderes (Oeste)",
+      "groundSurface": "Banqueta de piedra exterior",
+      "description": "Columna monumental de cantera labrada con fuste cuadrado y capitel clásico para el pórtico cubierto.",
+      "semanticRole": "Columna estructural de portal perimetral"
+    },
+    {
+      "id": "columna_portal_21",
+      "name": "Columna Portal de Mercaderes #21",
+      "category": "columna_portal",
+      "modelType": "portal",
+      "modelFile": "plaza_plano_maestro.obj",
+      "position": {
+        "x": -46.5,
+        "y": 0.15,
+        "z": 30.67
+      },
+      "rotationDeg": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "rotationRad": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "scale": {
+        "x": 1,
+        "y": 1,
+        "z": 1
+      },
+      "dimensions": {
+        "width": 1.15,
+        "height": 5.8,
+        "depth": 1.15
+      },
+      "zone": "Portal de Mercaderes (Oeste)",
+      "groundSurface": "Banqueta de piedra exterior",
+      "description": "Columna monumental de cantera labrada con fuste cuadrado y capitel clásico para el pórtico cubierto.",
+      "semanticRole": "Columna estructural de portal perimetral"
+    },
+    {
+      "id": "columna_portal_22",
+      "name": "Columna Portal de Mercaderes #22",
+      "category": "columna_portal",
+      "modelType": "portal",
+      "modelFile": "plaza_plano_maestro.obj",
+      "position": {
+        "x": -46.5,
+        "y": 0.15,
+        "z": 34.5
+      },
+      "rotationDeg": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "rotationRad": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "scale": {
+        "x": 1,
+        "y": 1,
+        "z": 1
+      },
+      "dimensions": {
+        "width": 1.15,
+        "height": 5.8,
+        "depth": 1.15
+      },
+      "zone": "Portal de Mercaderes (Oeste)",
+      "groundSurface": "Banqueta de piedra exterior",
+      "description": "Columna monumental de cantera labrada con fuste cuadrado y capitel clásico para el pórtico cubierto.",
+      "semanticRole": "Columna estructural de portal perimetral"
+    },
+    {
+      "id": "columna_portal_23",
+      "name": "Columna Portal de Mercaderes #23",
+      "category": "columna_portal",
+      "modelType": "portal",
+      "modelFile": "plaza_plano_maestro.obj",
+      "position": {
+        "x": -46.5,
+        "y": 0.15,
+        "z": 38.33
+      },
+      "rotationDeg": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "rotationRad": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "scale": {
+        "x": 1,
+        "y": 1,
+        "z": 1
+      },
+      "dimensions": {
+        "width": 1.15,
+        "height": 5.8,
+        "depth": 1.15
+      },
+      "zone": "Portal de Mercaderes (Oeste)",
+      "groundSurface": "Banqueta de piedra exterior",
+      "description": "Columna monumental de cantera labrada con fuste cuadrado y capitel clásico para el pórtico cubierto.",
+      "semanticRole": "Columna estructural de portal perimetral"
+    },
+    {
+      "id": "columna_portal_24",
+      "name": "Columna Portal de Mercaderes #24",
+      "category": "columna_portal",
+      "modelType": "portal",
+      "modelFile": "plaza_plano_maestro.obj",
+      "position": {
+        "x": -46.5,
+        "y": 0.15,
+        "z": 42.17
+      },
+      "rotationDeg": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "rotationRad": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "scale": {
+        "x": 1,
+        "y": 1,
+        "z": 1
+      },
+      "dimensions": {
+        "width": 1.15,
+        "height": 5.8,
+        "depth": 1.15
+      },
+      "zone": "Portal de Mercaderes (Oeste)",
+      "groundSurface": "Banqueta de piedra exterior",
+      "description": "Columna monumental de cantera labrada con fuste cuadrado y capitel clásico para el pórtico cubierto.",
+      "semanticRole": "Columna estructural de portal perimetral"
+    },
+    {
+      "id": "columna_portal_25",
+      "name": "Columna Portal de Mercaderes #25",
+      "category": "columna_portal",
+      "modelType": "portal",
+      "modelFile": "plaza_plano_maestro.obj",
+      "position": {
+        "x": -46.5,
+        "y": 0.15,
+        "z": 46
+      },
+      "rotationDeg": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "rotationRad": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "scale": {
+        "x": 1,
+        "y": 1,
+        "z": 1
+      },
+      "dimensions": {
+        "width": 1.15,
+        "height": 5.8,
+        "depth": 1.15
+      },
+      "zone": "Portal de Mercaderes (Oeste)",
+      "groundSurface": "Banqueta de piedra exterior",
+      "description": "Columna monumental de cantera labrada con fuste cuadrado y capitel clásico para el pórtico cubierto.",
+      "semanticRole": "Columna estructural de portal perimetral"
+    }
+  ]
+}
